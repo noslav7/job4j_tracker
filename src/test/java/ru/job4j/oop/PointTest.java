@@ -31,4 +31,22 @@ public class PointTest {
         double section = a.distance(b);
         assertEquals(expected, section, 0.1);
     }
+
+    @Test
+    public void distance4() {
+        Point a = new Point(10, 10, 10);
+        Point b = new Point(10, 15, 15);
+        double expected = 5.0;
+        double section = a.distance(b);
+        assertEquals(expected, section, 0.1);
+    }
+
+    @Test
+    public void distance5() {
+        Point a = new Point(-100, -50, -100);
+        Point b = new Point(-100, -75, -125);
+        double expected = 25.0;
+        double section = a.distance(b);
+        assertEquals(expected, section, 0.1);
+    }
 }
