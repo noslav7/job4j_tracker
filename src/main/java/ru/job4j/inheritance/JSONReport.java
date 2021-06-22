@@ -3,9 +3,9 @@ package ru.job4j.inheritance;
 public class JSONReport extends TextReport {
 
         public String generate(String name, String body) {
-            return "{" +
+            return "{" + System.lineSeparator() +
                     name + ":" + "name" + System.lineSeparator() +
-                            body + ":" + "body" +
+                    body + ":" + "body" + System.lineSeparator() +
                     "}";
         }
 }
