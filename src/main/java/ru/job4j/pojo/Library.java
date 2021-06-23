@@ -11,18 +11,18 @@ public class Library {
         bookArray[1] = head;
         bookArray[2] = reference;
         bookArray[3] = thinking;
-        for (int i = 0; i < bookArray.length; i++) {
-            System.out.println(bookArray[i]);
+        for (Book book : bookArray) {
+            System.out.println(book.getTitle() + " " + book.getPages());
         }
         Book temp = bookArray[0];
         bookArray[0] = bookArray[3];
         bookArray[3] = temp;
-        for (int i = 0; i < bookArray.length; i++) {
-            System.out.println(bookArray[i]);
+        for (Book book : bookArray) {
+            System.out.println(book.getTitle() + " " + book.getPages());
         }
-        for (int i = 0; i < bookArray.length; i++) {
-            if (bookArray[i].equals(clean)) {
-                System.out.println(bookArray[i]);
+        for (Book book : bookArray) {
+            if ("Clean Code".equals(book.getTitle())) {
+                System.out.println(book.getTitle() + " " + book.getPages());
             }
         }
     }
