@@ -7,6 +7,7 @@ public class Colledge {
         usue.setNamFamPat("Ярочкин Константин Александрович");
         usue.setStudyGroup("ЭП-17");
         usue.setEntrance(new Date());
-        System.out.println("ФИО: " + usue.getNamFamPat() + "группа : " + usue.getStudyGroup() + " Дата поступления : " + usue.getEntrance());
+        System.out.println("ФИО: " + usue.getNamFamPat() + "группа : " + usue.getStudyGroup()
+                + " Дата поступления : " + usue.getEntrance());
     }
 }
