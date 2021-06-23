@@ -3,6 +3,11 @@ package ru.job4j.tracker;
 public class Doctor extends Profession {
 private String speciality;
 
+    public Doctor() {
+        super();
+        this.speciality = speciality;
+    }
+
     public Diagnosis heal(Patient patient) {
         Diagnosis illness = new Diagnosis();
         return illness;
