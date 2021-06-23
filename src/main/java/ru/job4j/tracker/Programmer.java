@@ -3,6 +3,11 @@ package ru.job4j.tracker;
 public class Programmer extends Engineer {
     private String notebookModel;
 
+    public Programmer() {
+        super();
+        this.notebookModel = notebookModel;
+    }
+
     public Software development() {
         Software IDE = new Software();
         return IDE;

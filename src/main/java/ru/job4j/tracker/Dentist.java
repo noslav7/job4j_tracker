@@ -3,6 +3,11 @@ package ru.job4j.tracker;
 public class Dentist extends Doctor {
     private boolean anesthesia;
 
+    public Dentist() {
+        super();
+        this.anesthesia = anesthesia;
+    }
+
     public Treatment treat(Patient patient) {
         Treatment healing = new Treatment();
         return healing;
