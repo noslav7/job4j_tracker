@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class LicenseTest {
+public class  LicenseTest {
 
     @Test
     public void eqName() {
