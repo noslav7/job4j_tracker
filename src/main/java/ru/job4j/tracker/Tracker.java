@@ -6,7 +6,6 @@ public class Tracker {
     private int ids = 1;
 
     public Item add(Item item) {
-        items.add(item);
         item.setId(ids++);
         return item;
     }
@@ -23,17 +22,16 @@ public class Tracker {
         return rsl;
     }
 
-    public Item[] findByName(String key) {
+    public Item[] findByName(int siz) {
         Item[] namesWithoutNull = new Item[items.length];
-        int count = 0;
-        for (int i  = 0; i < items.length - 1; i++) {
+        for (int i  = 0; i < siz; i++) {
             String name = items[i].getName();
-            if (name.equals(key)) {
-                namesWithoutNull[count] = items[i];
-                count++;
+            if (name.equals(siz)) {
+                namesWithoutNull[siz] = items[i];
+                siz++;
             }
         }
-        namesWithoutNull = Arrays.copyOf(namesWithoutNull, count);
+        namesWithoutNull = Arrays.copyOf(namesWithoutNull, siz);
         return namesWithoutNull;
     }
 

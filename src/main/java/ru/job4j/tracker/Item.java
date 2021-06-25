@@ -12,6 +12,7 @@ public class Item {
         }
 
     public Item(String bug) {
+        this.name = bug;
     }
 
     public int getId() {
