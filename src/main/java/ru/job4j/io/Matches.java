@@ -12,14 +12,16 @@ public class Matches {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " введите число от 1 до 3");
             int select = Integer.valueOf(input.nextLine());
+            if (select >= 1 && select <= 3) {
             turn = !turn;
             count = count - select;
-        }
-        System.out.println("Игра окончена.");
-        if (turn) {
-            System.out.println("Выиграл первый игрок");
-        } else {
-            System.out.println("Выиграл второй игрок");
+            }
+            System.out.println("Игра окончена.");
+            if (turn) {
+                System.out.println("Выиграл первый игрок");
+            } else {
+                System.out.println("Выиграл второй игрок");
+            }
         }
     }
 }
