@@ -40,16 +40,6 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] namesWithoutNull = new Item[][items.length];
-        int size = 0;
-        for (Item name : items) {
-            String cell = name.getName();
-            if (cell != null) {
-                namesWithoutNull[size] = name;
-                size++;
-            }
-        }
-        namesWithoutNull = Arrays.copyOf(namesWithoutNull, size);
-        return namesWithoutNull;
+        return Arrays.copyOf(items, size);
     }
 }
