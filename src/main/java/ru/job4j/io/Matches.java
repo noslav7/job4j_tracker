@@ -13,12 +13,13 @@ public class Matches {
             System.out.println(player + " введите число от 1 до 3");
             int select = Integer.valueOf(input.nextLine());
             if (select >= 1 && select <= 3) {
-            turn = !turn;
-            count = count - select;
+                turn = !turn;
+                count = count - select;
                 System.out.println(count + " спичек осталось на столе.");
             } else {
                 System.out.println("Неверный ввод.");
             }
+        }
             if (!turn) {
                 System.out.println("Выиграл первый игрок");
             } else {
@@ -26,5 +27,4 @@ public class Matches {
             }
             System.out.println("Игра окончена.");
         }
-    }
 }
