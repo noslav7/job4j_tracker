@@ -15,13 +15,16 @@ public class Matches {
             if (select >= 1 && select <= 3) {
             turn = !turn;
             count = count - select;
+                System.out.println(count + " спичек осталось на столе.");
+            } else {
+                System.out.println("Неверный ввод.");
             }
-            System.out.println("Игра окончена.");
-            if (turn) {
+            if (!turn) {
                 System.out.println("Выиграл первый игрок");
             } else {
                 System.out.println("Выиграл второй игрок");
             }
+            System.out.println("Игра окончена.");
         }
     }
 }
