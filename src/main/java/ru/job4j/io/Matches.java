@@ -11,12 +11,9 @@ public class Matches {
         while (count > 0) {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " введите число от 1 до 3");
-            int matches = Integer.parseInt(input.nextLine());
+            int select = Integer.valueOf(input.nextLine());
             turn = !turn;
-            count = count - matches;
-            if (count > 0) {
-                System.out.println(count + " спичек осталось на столе.");
-            }
+            count = count - select;
         }
         System.out.println("Игра окончена.");
         if (turn) {
