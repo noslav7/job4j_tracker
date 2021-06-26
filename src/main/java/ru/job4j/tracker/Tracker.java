@@ -47,9 +47,9 @@ public class  Tracker {
         return rsl;
     }
 
-    public boolean replace(int id, Item bugWithDesc) {
+    public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        Item item = new Item();
+        item.setId(id);
         boolean rsl = index != -1;
         if (rsl) {
             items[index] = item;
