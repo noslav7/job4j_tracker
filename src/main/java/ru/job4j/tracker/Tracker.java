@@ -60,8 +60,8 @@ public class  Tracker {
     public boolean delete(int id) {
         boolean rsl = id != - 1;
         items[size - 1] = null;
-       size--;
-       if (rsl) {
+           size--;
+        if (indexOf(id) != - 1) {
            System.arraycopy(items, id + 1, items, id, size - id);
         }
        return rsl;
