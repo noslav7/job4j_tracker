@@ -59,10 +59,10 @@ public class  Tracker {
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        boolean result = indexOf(id) != -1;
+        boolean result = index != -1;
         if (result) {
-            items[id] = null;
-            System.arraycopy(items, index + 1, index, index, size - index);
+            items[index] = null;
+            System.arraycopy(items, index + 1, index, index, size - index - 1);
             size--;
         }
         return result;
