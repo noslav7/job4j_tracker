@@ -62,7 +62,7 @@ public class  Tracker {
         boolean result = index != -1;
         if (result) {
             items[index] = null;
-            System.arraycopy(items, index + 1, index, index, size - index - 1);
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
             size--;
         }
         return result;
