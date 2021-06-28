@@ -7,52 +7,33 @@ public class StartUI {
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
         while (run) {
-            this.showMenu();
+            showMenu();
             System.out.println("Select: ");
-            int select = Integer.valueOf(scanner.nextLine());
-            if (select == 0) {
-                System.out.println("=== Create a new Item ===");
-                System.out.println("Enter name: ");
-                String name = scanner.nextLine();
-                Item item = new Item(name);
-                tracker.add(item);
-            } else if (select == 1) {
-                System.out.println("=== Show all Items ===");
-
-                 System.out.println(tracker);
-                } else if (select == 2) {
-                System.out.println("=== Edit Item ===");
-
-            } else if (select == 3) {
-                System.out.println("=== Delete Item ===");
-
-            } else if (select == 4) {
-                System.out.println("=== Find Item by ID ===");
-
-            } else if (select == 5) {
-                System.out.println("=== Find Items by Name ===");
-
-            } else if (select == 6) {
+            int select = Integer.parseInt(scanner.nextLine());
+            if (select != 6) {
+                System.out.println("Пользователь выбрал " + select);
+            } else {
                 run = false;
             }
         }
+
     }
 
     private void showMenu() {
-        System.out.println("Menu.");
-        System.out.println("0. Add new Item");
-        System.out.println("1. Show all items");
-        System.out.println("2. Edit item");
-        System.out.println("3. Delete item");
-        System.out.println("4. Find item by Id");
-        System.out.println("5. Find items by name");
-        System.out.println("6. Exit Program");
+        String[] menu = {
+                "Add New Item", "Show All Items", "Edit Item",
+                "Delete Item", "Find Item by Id", "Find Items by Name",
+                "Exit Program"
+        };
+        System.out.println("Menu:");
+        for (int i = 0; i < menu.length; i++) {
+            System.out.println(i + ". " + menu[i]);
         }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Tracker tracker = new Tracker();
         new StartUI().init(scanner, tracker);
-
     }
 }
