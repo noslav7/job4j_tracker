@@ -28,7 +28,6 @@ public class  StartUI {
                 int id = Integer.parseInt(requestId);
                 String req = scanner.nextLine();
                 Item request = new Item(req);
-                tracker.replace(id, request);
                 if (tracker.replace(id, request)) {
                     System.out.println("Замена выполнена");
                 } else {
@@ -38,7 +37,6 @@ public class  StartUI {
                 System.out.println("=== Delete Item ====");
                 String requestId = scanner.nextLine();
                 int id = Integer.parseInt(requestId);
-                tracker.delete(id);
                 if (tracker.delete(id)) {
                     System.out.println("Удаление выполнено");
                 } else {
