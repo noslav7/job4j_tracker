@@ -8,6 +8,6 @@ public class Bus implements Vehicle{
 
     @Override
     public void hasFuel() {
-        System.out.print("The vehicle has got gasoline ");
+        System.out.println("The vehicle has got gasoline ");
     }
 }

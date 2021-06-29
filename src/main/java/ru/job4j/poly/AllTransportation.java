@@ -1,6 +1,6 @@
 package ru.job4j.poly;
 
-public class AllTransportation {
+public class  AllTransportation {
     public static void main(String[] args) {
    Vehicle urbanBus = new Bus();
    Vehicle countryBus = new Bus();

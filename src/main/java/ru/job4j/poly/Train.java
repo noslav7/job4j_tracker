@@ -8,6 +8,6 @@ public class Train implements Vehicle {
 
     @Override
     public void hasFuel() {
-        System.out.print("The vehicle has got diesel fuel ");
+        System.out.println("The vehicle has got diesel fuel ");
     }
 }

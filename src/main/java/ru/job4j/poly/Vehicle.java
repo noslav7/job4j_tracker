@@ -1,6 +1,6 @@
 package ru.job4j.poly;
 
-public interface Vehicle {
+public interface  Vehicle {
     void move();
 
     void hasFuel();

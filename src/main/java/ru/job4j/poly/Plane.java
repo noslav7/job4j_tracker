@@ -8,6 +8,6 @@ public class Plane implements Vehicle {
 
     @Override
     public void hasFuel() {
-        System.out.print("The vehicle has got kerosene ");
+        System.out.println("The vehicle has got kerosene ");
     }
 }
