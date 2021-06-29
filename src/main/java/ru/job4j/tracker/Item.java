@@ -11,8 +11,8 @@ public class Item {
             this.name = name;
         }
 
-    public Item(String bug) {
-        this.name = bug;
+    public Item(String name) {
+        this.name = name;
     }
 
     public int getId() {
@@ -38,4 +38,4 @@ public class Item {
                     ", name='" + name + '\'' +
                     '}';
         }
-    }
+}
