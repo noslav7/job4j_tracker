@@ -43,7 +43,7 @@ public class  StartUI {
         }
     }
 
-    public static void enterId(Input input, Tracker tracker) {
+    public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ====");
         System.out.println("Enter Id: ");
         int id = Integer.parseInt(input.askStr(msg));
@@ -52,6 +52,41 @@ public class  StartUI {
         } else {
             System.out.println("Ошибка удаления заявки.");
         }
+    }
+
+    public static void findById(Input input, Tracker tracker) {
+        System.out.println("=== Find item by id ====");
+        System.out.print("Enter id: ");
+        int id = Integer.parseInt(input.askStr(msg));
+        Item item = tracker.findById(id);
+        if (item != null) {
+            System.out.println(item);
+        } else {
+            System.out.println("Заявка с введенным id: " + id + " не найдена.");
+        }
+    }
+
+    public static void findByName(Input input, Tracker tracker) {
+        System.out.println("=== Find items by name ====");
+        System.out.print("Enter name: ");
+        String name = input.askStr(msg);
+        Item[] items = tracker.findByName(name);
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Заявки с именем: " + name + " не найдены.");
+        }
+    }
+
+    public static void replaceItem(Input input, Tracker tracker) {
+        System.out.println(" === Update item ====");
+        int id = input.askInt("Enter id:");
+        String name = input.askStr("Enter a new name of item: ");
+        Item item = new Item(name);
+        item.setId(id);
+        tracker.replace(id, item);
     }
 
     public void init(Input input, Tracker tracker) {
@@ -65,10 +100,15 @@ public class  StartUI {
             } else if (select == 1) {
                 StartUI.showItems(input, tracker);
             } else if (select == 2) {
-                StartUI.editItem(input, tracker);
+                StartUI.replaceItem(input, tracker);
             } else if (select == 3) {
-                StartUI.enterId(input, tracker);
-            } else if (select == 6) {
+                StartUI.deleteItem(input, tracker);
+            } else  if (select == 4) {
+                StartUI.findById(input, tracker);
+            } else if (select == 5) {
+                StartUI.findByName(input, tracker);
+            }
+            else if (select == 6) {
                 run = false;
             }
         }
