@@ -1,7 +1,7 @@
 package ru.job4j.poly;
 
-public interface Vehicle {
+public interface  Vehicle {
     void move();
 
-    boolean hasFuel(boolean fuel);
+    void hasFuel();
 }

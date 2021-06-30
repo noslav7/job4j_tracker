@@ -7,17 +7,7 @@ public class Train implements Vehicle {
     }
 
     @Override
-    public boolean hasFuel(boolean fuel) {
-        boolean dieselFuel = fuel;
-        return dieselFuel;
-    }
-
-    public static void main(String[] args) {
-        Train train1 = new Train();
-        Train train2 = new Train();
-        Train train3 = new Train();
-        Vehicle vehicleTrain1 = train1;
-        Vehicle vehicleTrain2 = train2;
-        Vehicle vehicleTrain3 = train3;
+    public void hasFuel() {
+        System.out.println("The vehicle has got diesel fuel ");
     }
 }
