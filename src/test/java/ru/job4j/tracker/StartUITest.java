@@ -38,8 +38,7 @@ public class StartUITest {
         Item item = new Item(null);
         tracker.replace(0, item);
         String[] answers = {
-                String.valueOf(item.getId()),
-                "deleted item"
+                String.valueOf(item.getId())
         };
         Item deleted = tracker.findById(item.getId());
         assertNull(deleted);
