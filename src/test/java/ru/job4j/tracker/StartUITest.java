@@ -1,11 +1,10 @@
 package ru.job4j.tracker;
 
-import com.sun.jdi.connect.Connector;
 import org.junit.Test;
-import java.util.Scanner;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 public class StartUITest {
 
@@ -43,6 +42,6 @@ public class StartUITest {
                 "deleted item"
         };
         Item deleted = tracker.findById(item.getId());
-        assertThat(deleted, is(null));
+        assertNull(deleted);
     }
 }

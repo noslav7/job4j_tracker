@@ -29,9 +29,7 @@ public class  StartUI {
 
     public static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ====");
-        System.out.println("Enter Id: ");
         int id = Integer.parseInt(input.askStr("Enter name: "));
-        System.out.println("Enter name: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
@@ -91,14 +89,13 @@ public class  StartUI {
         boolean run = true;
         while (run) {
             showMenu();
-            System.out.println("Select: ");
-            int select = Integer.parseInt(input.askStr("Enter name: "));
+            int select = Integer.parseInt(input.askStr("Select: "));
             if (select == 0) {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
                 StartUI.showItems(input, tracker);
             } else if (select == 2) {
-                StartUI.replaceItem(input, tracker);
+                StartUI.editItem(input, tracker);
             } else if (select == 3) {
                 StartUI.deleteItem(input, tracker);
             } else  if (select == 4) {
