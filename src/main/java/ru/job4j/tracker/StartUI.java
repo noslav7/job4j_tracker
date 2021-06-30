@@ -6,8 +6,6 @@ public class  StartUI {
 
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a New Item ====");
-        System.out.println("Enter name: ");
-        String msg = "Enter Id: ";
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
@@ -17,7 +15,6 @@ public class  StartUI {
     public static void showItems(Input input, Tracker tracker) {
         System.out.println("=== Show all items ====");
         Item[] items = tracker.findAll();
-        String name = input.askStr("Enter name: ");
         if (items.length > 0) {
             for (Item item : items) {
                 System.out.println(item);
