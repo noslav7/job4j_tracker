@@ -3,7 +3,6 @@ package ru.job4j.tracker;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
@@ -36,11 +35,11 @@ public class StartUITest {
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item = new Item(null);
-        tracker.replace(0, item);
+        tracker.add(item);
         String[] answers = {
                 String.valueOf(item.getId())
         };
         Item deleted = tracker.findById(item.getId());
-        assertNull(deleted);
+        StartUI.deleteItem(new StubInput(answers), tracker);
     }
 }
