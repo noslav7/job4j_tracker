@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Scanner;
 
 
-public class  StartUI {
+public class StartUI {
 
 
     public static void createItem(Input input, Tracker tracker) {
