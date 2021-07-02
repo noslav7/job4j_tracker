@@ -12,7 +12,11 @@ public class  EditAction implements UserAction {
         int id = input.askInt("Enter Id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        tracker.replace(id, item);
+        if (tracker.replace(id, item)) {
+            System.out.println("Заявка заменена успешно.");
+        } else {
+            System.out.println("Ошибка замены заявки.");
+        }
         return true;
     }
 }
