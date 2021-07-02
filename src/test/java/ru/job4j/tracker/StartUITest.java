@@ -13,7 +13,7 @@ public class  StartUITest {
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[] {"0", "id", "Edited item", "1"}
+                new String[] {"0", String.valueOf(item.getId()), "Edited item", "1"}
         );
         UserAction[] actions = {
                 new EditAction(),
@@ -28,7 +28,7 @@ public class  StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
-                new String[] {"0", "id", "1"}
+                new String[] {"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
                 new DeleteAction(),
