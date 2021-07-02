@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 
-public class StartUI implements Output {
+public class StartUI {
     private final Output out;
 
     public StartUI(Output out) {
@@ -19,9 +19,9 @@ public class StartUI implements Output {
     }
 
     private void showMenu (UserAction[] actions) {
-        println("Menu:");
+        out.println("Menu:");
         for (int index = 0; index < actions.length; index++) {
-            println(index + ". " + actions[index].name());
+            out.println(index + ". " + actions[index].name());
         }
     }
 
@@ -39,9 +39,5 @@ public class StartUI implements Output {
                 new Exit(output)
         };
         new StartUI(output).init(input, tracker, actions);
-    }
-
-    @Override
-    public void println(Object obj) {
     }
 }
