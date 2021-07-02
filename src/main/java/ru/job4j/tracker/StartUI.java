@@ -1,14 +1,13 @@
 package ru.job4j.tracker;
-
 import java.lang.reflect.Array;
 import java.util.Scanner;
 
 
 public class StartUI {
-        private final Output out;
+    private final Output out;
 
-        public StartUI(Output out) {
-            this.out = out;
+    public StartUI(Output out) {
+        this.out = out;
     }
 
     public void init(Input input, Tracker tracker, UserAction[] actions) {
@@ -42,4 +41,4 @@ public class StartUI {
         };
         new StartUI(output).init(input, tracker, actions);
     }
- }
+}
