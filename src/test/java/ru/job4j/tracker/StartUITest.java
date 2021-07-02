@@ -17,8 +17,8 @@ public class  StartUITest {
                 new String[] {"0", String.valueOf(item.getId()), "Edited item", "1"}
         );
         UserAction[] actions = {
-                new EditAction(),
-                new Exit()
+                new EditAction(output),
+                new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
@@ -33,8 +33,8 @@ public class  StartUITest {
                 new String[] {"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new DeleteAction(),
-                new Exit()
+                new DeleteAction(output),
+                new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
@@ -49,7 +49,7 @@ public class  StartUITest {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
-                new Exit()
+                new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("Item name"));
