@@ -17,7 +17,6 @@ public class  ShowAction implements UserAction {
             System.out.println("=== Show items ====");
             String name = input.askStr("Enter name: ");
             Item item = new Item(name);
-            tracker.add(item);
             Item[] items = tracker.findAll();
             if (items.length > 0) {
                 for (int i = 0; i < items.length; i++) {
