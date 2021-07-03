@@ -23,13 +23,13 @@ public class FindIdActionTest {
         String ln = System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
         assertThat(output.toString(), is(
-                "Menu." + ln
-                        + "0. Find item by id" + ln
+                "Menu:" + ln
+                        + "0. Find item by Id" + ln
                         + "1. Exit" + ln
-                        + "=== Show all items ====" + ln
+                        + "=== Find item by id ====" + ln
                         + item + ln
-                        + "Menu." + ln
-                        + "0. Find item by id" + ln
+                        + "Menu:" + ln
+                        + "0. Find item by Id" + ln
                         + "1. Exit" + ln
         ));
     }

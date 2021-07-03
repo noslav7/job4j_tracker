@@ -5,7 +5,7 @@ import java.lang.System;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class  ShowActionTest {
+public class ShowActionTest {
 
     @Test
     public void execute() {
@@ -23,12 +23,12 @@ public class  ShowActionTest {
         String ln = System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
         assertThat(output.toString(), is(
-                "Menu." + ln
+                "Menu:" + ln
                 + "0. Show all Items" + ln
                 + "1. Exit" + ln
                 + "=== Show all items ====" + ln
                 + item + ln
-                + "Menu." + ln
+                + "Menu:" + ln
                 + "0. Show all Items" + ln
                 + "1. Exit" + ln
         ));

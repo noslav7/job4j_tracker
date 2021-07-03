@@ -23,12 +23,12 @@ public class FindNameActionTest {
         String ln = System.lineSeparator();
         new StartUI(output).init(in, tracker, actions);
         assertThat(output.toString(), is(
-                "Menu." + ln
+                "Menu:" + ln
                         + "0. Find item by name" + ln
                         + "1. Exit" + ln
                         + "=== Find items by name ====" + ln
                         + item + ln
-                        + "Menu." + ln
+                        + "Menu:" + ln
                         + "0. Find item by name" + ln
                         + "1. Exit" + ln
         ));
