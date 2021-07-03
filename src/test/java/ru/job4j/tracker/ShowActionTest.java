@@ -5,7 +5,7 @@ import java.lang.System;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class ShowActionTest {
+public class  ShowActionTest {
 
     @Test
     public void execute() {

@@ -15,11 +15,9 @@ public class ShowAction implements UserAction {
         @Override
         public boolean execute (Input input, Tracker tracker){
             out.println("=== Show items ====");
-            String name = input.askStr("Enter name: ");
-            Item item = new Item(name);
             Item[] items = tracker.findAll();
             if (items.length > 0) {
-                for (int i = 0; i < items.length; i++) {
+                for (Item item : items) {
                     out.println(item);
                 }
             } else {

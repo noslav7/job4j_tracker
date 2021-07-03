@@ -13,7 +13,7 @@ public class FindIdActionTest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("New Item"));
         Input in = new StubInput(
-                new String[] {"0", "1"}
+                new String[] {"0", String.valueOf(item.getId()), "1"}
         );
 
         UserAction[] actions = {
