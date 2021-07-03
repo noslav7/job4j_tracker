@@ -12,9 +12,9 @@ public class  StartUITest {
         Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
-        String replacedName = "New item name";
+        String replacedName = "Edited item";
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), "Edited item", "1"}
+                new String[] {"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
                 new EditAction(output),
