@@ -5,18 +5,19 @@ public class FindEl {
         int rsl = - 1;
         for (int i = 0; i < value.length; i++) {
             if (value[i].equals(key)) {
-                rsl = // ???
+                rsl = i;
+                break;
             }
-            if (rsl == - 1) {
-                throw new ElementNotFoundException("Could not find index");
-            }
+        }
+        if (rsl == - 1) {
+            throw new ElementNotFoundException("Could not find index");
         }
         return rsl;
     }
 
     public static void main(String[] args) {
         try {
-            indexOf(value, rsl); // ???
+           int index = indexOf(value, 0);
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
