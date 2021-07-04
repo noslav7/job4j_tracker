@@ -2,19 +2,19 @@ package ru.job4j.ex;
 
 public class User {
 
-    private String userName;
-    private boolean valid;
+    private static String userName;
+    private static boolean valid;
 
     public User(String userName, boolean valid) {
         this.userName = userName;
         this.valid = valid;
     }
 
-    public String getUserName() {
+    public static String getUserName() {
         return userName;
     }
 
-    public boolean isValid() {
+    public static boolean isValid() {
         return valid;
     }
 }
