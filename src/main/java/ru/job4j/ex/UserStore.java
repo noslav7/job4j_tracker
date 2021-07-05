@@ -1,26 +1,22 @@
 package ru.job4j.ex;
 
 public class UserStore {
-    User user;
+
     public static User findUser(User[] users, String login) throws UserNotFoundException {
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getUsername().equals(login)) {
+        for (User user : users) {
+            if (user.getUsername().equals(login)) {
                 return user;
-            } else {
-                return null;
             }
         }
         throw new UserNotFoundException("Такого пользователя нет в списке");
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if (user.isValid() || user.getUserName().length() >= 3) {
-            return true;
-        } else{
+        if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("Не подходящее имя пользователя");
         }
+        return true;
     }
-
 
     public static void main(String[] args) {
         User[] users = {
@@ -32,7 +28,7 @@ public class UserStore {
                 System.out.println("This user has an access.");
             }
         } catch (UserInvalidException ui) {
-            System.out.println("Не подходящий ользователь");
+            System.out.println("Не подходящий пользователь");
         } catch (UserNotFoundException ue) {
             System.out.println("Имя пользователя не найдено");
         }
