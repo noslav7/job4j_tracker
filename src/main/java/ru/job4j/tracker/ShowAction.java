@@ -1,17 +1,28 @@
 package ru.job4j.tracker;
 
-public class ShowAction implements UserAction{
-    @Override
-    public String name() {
-        return "Show items";
+public class ShowAction implements UserAction {
+    private final Output out;
+
+    public ShowAction(Output out) {
+        this.out = out;
     }
 
-    @Override
-    public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Show items ====");
-        String name = input.askStr("Enter name: ");
-        Item item = new Item(name);
-        tracker.add(item);
-        return true;
+        @Override
+        public String name () {
+            return "Show all Items";
+        }
+
+        @Override
+        public boolean execute (Input input, Tracker tracker){
+            out.println("=== Show all items ====");
+            Item[] items = tracker.findAll();
+            if (items.length > 0) {
+                for (Item item : items) {
+                    out.println(item);
+                }
+            } else {
+                out.println("Хранилище еще не содержит заявок");
+            }
+            return true;
+        }
     }
-}
