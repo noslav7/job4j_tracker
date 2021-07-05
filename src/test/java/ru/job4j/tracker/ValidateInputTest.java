@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class ValidateInputTest {
+public class  ValidateInputTest {
 
     @Test
     public void whenInvalidInput() {
