@@ -1,36 +1,19 @@
 package ru.job4j.tracker;
 
 public class User {
-    private int id;
-
     private String username;
+    private boolean valid;
 
-    private String password;
-
-    public User(int id, String username, String password) {
-        this.id = id;
+    public User(String username, boolean valid) {
         this.username = username;
-        this.password = password;
-    }
-
-    public int getId() {
-        return id;
+        this.valid = valid;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public boolean isValid() {
+        return valid;
     }
 }
