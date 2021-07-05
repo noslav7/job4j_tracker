@@ -3,7 +3,7 @@ import java.lang.reflect.Array;
 import java.util.Scanner;
 
 
-public class StartUI {
+public class  StartUI {
     private final Output out;
 
     public StartUI(Output out) {
@@ -33,11 +33,11 @@ public class StartUI {
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
-                new Exit(),
-                new DeleteAction(),
-                new EditAction(),
-                new FindIdAction(),
-                new ShowAction()
+                new Exit(output),
+                new DeleteAction(output),
+                new EditAction(output),
+                new FindIdAction(output),
+                new ShowAction(output)
         };
         new StartUI(output).init(input, tracker, actions);
     }
