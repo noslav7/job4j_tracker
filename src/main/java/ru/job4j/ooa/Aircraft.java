@@ -1,4 +1,4 @@
-package ru.job4j.encapsulation.ooa;
+package ru.job4j.ooa;
 
 public class Aircraft {
 

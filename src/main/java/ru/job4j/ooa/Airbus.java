@@ -1,4 +1,4 @@
-package ru.job4j.encapsulation.ooa;
+package ru.job4j.ooa;
 
 public class Airbus extends Aircraft {
     private static final int COUNT_ENGINE = 2;
@@ -8,8 +8,8 @@ public class Airbus extends Aircraft {
         this.name = name;
     }
 
-    public String setName(String a380) {
-        return name;
+    public void setName(String a380) {
+        this.name = name;
     }
 
     public String getName(String a380) {
