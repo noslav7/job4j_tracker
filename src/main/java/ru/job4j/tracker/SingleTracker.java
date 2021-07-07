@@ -17,8 +17,8 @@ public class SingleTracker {
         return tracker.add(item);
     }
 
-    public Item findById() {
-        return tracker.findById();
+    public Item findById(int id) {
+        return tracker.findById(id);
     }
 
     public Item[] findByName(String key) { return tracker.findByName(key); }
