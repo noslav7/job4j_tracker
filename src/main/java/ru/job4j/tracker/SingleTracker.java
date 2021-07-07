@@ -1,10 +1,8 @@
 package ru.job4j.tracker;
 
-import com.sun.jdi.connect.Connector;
-
 public class SingleTracker {
     private Tracker tracker = new Tracker();
-    private static Tracker instance = null;
+    private int id;
 
     public Tracker getInstance() {
         if (tracker == null) {
@@ -17,13 +15,13 @@ public class SingleTracker {
         return tracker.add(item);
     }
 
-    public Item findById() { return tracker.findById(findById().getId());
+    public Item findById() { return tracker.findById(id);
     }
 
-    public Item[] findByName(String key) { return tracker.findByName(findById().getName()); }
+    public Item[] findByName(String key) { return tracker.findByName(key); }
 
-    public boolean replace(int id, Item item) { return tracker.replace(findById().getId(), item); }
+    public boolean replace(int id, Item item) { return tracker.replace(id, item); }
 
-    public boolean delete(int id) { return tracker.delete(findById().getId()); }
+    public boolean delete(int id) { return tracker.delete(id); }
 
 }
