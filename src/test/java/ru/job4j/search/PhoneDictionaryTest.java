@@ -2,13 +2,13 @@ package ru.job4j.search;
 
 import org.junit.Test;
 import ru.job4j.collection.Person;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
-public class PhoneDictionaryTest {
+public class  PhoneDictionaryTest {
 
     @Test
     public void findByName() {
