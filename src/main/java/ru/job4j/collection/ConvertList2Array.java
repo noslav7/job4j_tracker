@@ -8,13 +8,10 @@ public class ConvertList2Array {
         int[][] array = new int[groups][cells];
         int row = 0, cell = 0;
         for (Integer num : list) {
-            array[row][cell] = num;
-        }
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                array[row][cell] = list.get(j);
-                row++;
-                cell++;
+            array[row][cell++] = num;
+            if (cell == cells) {
+            cell = 0;
+            row++;
             }
         }
         return array;
