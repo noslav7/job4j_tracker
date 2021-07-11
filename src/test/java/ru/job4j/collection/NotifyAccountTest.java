@@ -28,7 +28,7 @@ public class NotifyAccountTest {
     }
 
     @Test
-    public void sentDuplicate() {
+    public void  sentDuplicate() {
         List<Account> accounts = Arrays.asList(
                 new Account("321", "Alexander Kovalenko", "eDer3432f"),
                 new Account("321", "Alexander Kovalenko", "eDer3432f")
