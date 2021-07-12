@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class  StartUI {
-    private final Output out;
+  /*  private final Output out;
 
     public StartUI(Output out) {
         this.out = out;
@@ -45,5 +45,5 @@ public class  StartUI {
                 new ShowAction(output)
         };
         new StartUI(output).init(input, tracker, actions);
-    }
+    }*/
 }
