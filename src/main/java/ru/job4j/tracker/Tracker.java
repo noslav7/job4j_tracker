@@ -1,29 +1,30 @@
 package ru.job4j.tracker;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Tracker {
-    private ListItem[] items = new ListItem[100];
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
-        items[size++] = (ListItem) item;
+        items.add(item);
         return item;
     }
 
     public Item findById(int id) {
         int index = indexOf(id);
-        return index != -1 ? (Item) items[index] : null;
+        return index != -1 ? (Item) items.get(index) : null;
     }
 
     public Item[] findByName(String key) {
-        Item[] namesWithoutNull = new Item[items.length];
+        Item[] namesWithoutNull = new Item[items.size()];
         int size = 0;
-        for (int index = 0; index < this.size; index++) {
-            String name = items[index].getName();
+        for (int index = 0; index < items.size(); index++) {
+            String name = items.get(index).getName();
             if (name.equals(key)) {
-                namesWithoutNull[size] = (Item) items[index];
+                namesWithoutNull[size] = (Item) items.get(index);
                 size++;
             }
         }
@@ -32,13 +33,13 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        return (Item[]) Arrays.copyOf(items, size);
+        return (Item[]) Arrays.copyOf(items, ...);
     }
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
             }
@@ -60,9 +61,9 @@ public class Tracker {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
-            System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items[size - 1] = null;
-            size--;
+            System.arraycopy(items, index + 1, items, index, ... - index - 1);
+            items[... - 1] = null;
+            ...--;
         }
         return result;
     }

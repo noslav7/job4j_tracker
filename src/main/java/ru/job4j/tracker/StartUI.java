@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 import java.lang.reflect.Array;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -10,16 +11,16 @@ public class  StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, List<Item> items) {
         boolean run = true;
         while (run) {
-            this.showMenu(actions);
+            this.showMenu(...);
             int select = input.askInt("Select: ");
-            if (select < 0 || select >= actions.length) {
-                out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
+            if (select < 0 || select >= items.size()) {
+                out.println("Wrong input, you can select: 0 .. " + (items.size() - 1));
                 continue;
             }
-            UserAction action = actions[select];
+            UserAction action = ...;
             run = action.execute(input, tracker);
         }
     }
