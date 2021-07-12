@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class UserTest {
+public class  UserTest {
 
     @Test
     public void whenAsc() {
