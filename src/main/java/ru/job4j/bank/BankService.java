@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
-
+/*
     public void addUser(User user) {
     if (!users.containsValue(user)) {
         addUser(user, new ArrayList<Account>());
@@ -41,5 +41,5 @@ public class BankService {
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
         return rsl;
-    }
+    }*/
 }
