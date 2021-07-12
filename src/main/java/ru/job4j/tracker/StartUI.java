@@ -5,22 +5,22 @@ import java.util.Scanner;
 
 
 public class  StartUI {
-  /*  private final Output out;
+  private final Output out;
 
     public StartUI(Output out) {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker, List<Item> items) {
+    public void init(Input input, Tracker tracker, List<UserAction> items) {
         boolean run = true;
         while (run) {
-            this.showMenu(...);
+            this.showMenu(items.toArray(new UserAction[0]));
             int select = input.askInt("Select: ");
             if (select < 0 || select >= items.size()) {
                 out.println("Wrong input, you can select: 0 .. " + (items.size() - 1));
                 continue;
             }
-            UserAction action = ...;
+            UserAction action = items.get(select);
             run = action.execute(input, tracker);
         }
     }
@@ -44,6 +44,6 @@ public class  StartUI {
                 new FindIdAction(output),
                 new ShowAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
-    }*/
+        new StartUI(output).init(input, tracker, items);
+    }
 }

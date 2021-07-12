@@ -1,4 +1,5 @@
 package ru.job4j.tracker;
+import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +7,7 @@ import java.util.List;
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-/*
+
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
@@ -29,11 +30,11 @@ public class Tracker {
             }
         }
         namesWithoutNull = Arrays.copyOf(namesWithoutNull, size);
-        return namesWithoutNull;
+        return List<Item>;
     }
 
     public Item[] findAll() {
-        return (Item[]) Arrays.copyOf(items, ...);
+        return List<Item>;
     }
 
     private int indexOf(int id) {
@@ -52,7 +53,7 @@ public class Tracker {
         boolean rsl = index != -1;
         if (rsl) {
             item.setId(id);
-            items[index] = (ListItem) item;
+            items.set(index, item);
         }
         return rsl;
     }
@@ -61,10 +62,8 @@ public class Tracker {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
-            System.arraycopy(items, index + 1, items, index, ... - index - 1);
-            items[... - 1] = null;
-            ...--;
+            items.remove(items);
         }
         return result;
-    }*/
+    }
 }
