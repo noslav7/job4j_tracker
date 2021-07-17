@@ -1,5 +1,5 @@
 package ru.job4j.tracker;
-import javax.swing.plaf.basic.BasicComboBoxUI;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +19,7 @@ public class Tracker {
         return index != -1 ? (Item) items.get(index) : null;
     }
 
-    public Item[] findByName(String key) {
+    public List<Item> findByName(String key) {
         Item[] namesWithoutNull = new Item[items.size()];
         int size = 0;
         for (int index = 0; index < items.size(); index++) {
