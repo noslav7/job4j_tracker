@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class BankServiceTest {
-/*
+
     @Test
     public void addUser() {
         User user = new User("3434", "Petr Arsentev");
@@ -42,5 +42,4 @@ public class BankServiceTest {
         bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 150D);
         assertThat(bank.findByRequisite(user.getPassport(), "113").getBalance(), is(200D));
     }
-*/
 }
