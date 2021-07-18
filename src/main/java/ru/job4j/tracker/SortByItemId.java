@@ -5,7 +5,7 @@ import java.util.Comparator;
 public class SortByItemId implements Comparator<Item> {
 
     @Override
-    public int compare(Item first, Item second) {
+    public int  compare(Item first, Item second) {
         return Integer.compare(first.getId(), second.getId());
     }
 }
