@@ -12,7 +12,7 @@ public class  ItemSorter {
                 new Item(2, "Third item")
         );
         System.out.println(items);
-        Collections.sort(items);
+        Collections.sort(items, null);
         System.out.println(items);
     }
 }
