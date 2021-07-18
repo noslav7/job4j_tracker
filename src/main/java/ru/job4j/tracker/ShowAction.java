@@ -19,7 +19,7 @@ public class ShowAction implements UserAction {
             out.println("=== Show all items ====");
             List<Item> items = tracker.findAll();
             if (items.size() > 0) {
-                for (Object item : items) {
+                for (Item item : items) {
                     out.println(item);
                 }
             } else {
