@@ -1,12 +1,7 @@
 package ru.job4j.tracker;
 
-import org.junit.Test;
-import java.lang.System;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
-
 public class ShowActionTest {
-
+/*
     @Test
     public void execute() {
         Output output = new StubOutput();
@@ -32,5 +27,5 @@ public class ShowActionTest {
                 + "0. Show all Items" + ln
                 + "1. Exit" + ln
         ));
-    }
+    }*/
 }

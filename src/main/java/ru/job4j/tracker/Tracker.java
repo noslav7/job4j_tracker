@@ -6,6 +6,16 @@ import java.util.List;
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
 
+    public Item add(Item item) {
+        items.add(item);
+        return item;
+    }
+
+    public Item findById(int id) {
+        int index = indexOf(id);
+        return index != -1 ? (Item) items.get(index) : null;
+    }
+
     public List<Item> findByName(String key) {
         List<Item> rsl = new ArrayList<>();
         for (Item item : items) {

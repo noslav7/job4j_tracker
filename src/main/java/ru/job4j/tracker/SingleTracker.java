@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
 public class SingleTracker {
+
+ /*
     private Tracker tracker = null;
 
     private SingleTracker() {
@@ -26,5 +28,5 @@ public class SingleTracker {
     public boolean replace(int id, Item item) { return tracker.replace(id, item); }
 
     public boolean delete(int id) { return tracker.delete(id); }
-
+*/
 }
