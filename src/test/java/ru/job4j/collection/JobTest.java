@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 import static org.junit.Assert.*;
 
-public class JobTest {
+public class  JobTest {
     @Test
     public void whenCompatorByNameAndProrityDesc() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
