@@ -1,11 +1,9 @@
 package ru.job4j.comparator;
 
-import java.util.Comparator;
-import java.util.Objects;
 
 public class ThenComparingMethod {
-
-    public static class User implements Comparable<User> {
+/*
+    public static class User implements Comparator<User> {
 
         private String name;
         private int age;
@@ -43,7 +41,7 @@ public class ThenComparingMethod {
     }
 
     public static Comparator<User> thenComparing() {
-        // return ...
+        return ;
     }
 
     public static Comparator<User> ascByName() {
@@ -53,5 +51,5 @@ public class ThenComparingMethod {
     public static Comparator<User> descByAge() {
         // return ...
     }
-
+*/
 }

@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -14,19 +15,32 @@ public class ItemSorterTest {
 
     @Test
     public void whenSortByIdDecrease() {
-        List<Item> itemList = new List<Item>() {
+        List<Item> itemList = new ArrayList<Item>();
+        itemList = List.of(
                 new Item(0, "First item"),
                 new Item(2, "Third item"),
                 new Item(3, "Fourth item"),
                 new Item(1, "Second item")
-        };
+        );
         Collections.sort(itemList, new SortByIdDecrease());
-        List<Item> expected = new List<Item>() {
-                        Item(3,"Fourth item"),
-                        Item(2, "Third item"),
-                        Item(1, "Second item"),
-                        Item(0, "First item")
-        };
-        assertThat(expected, itemList);
+        List<Item> expected = new ArrayList<Item>();
+        expected = List.of(
+                        new Item(3,"Fourth item"),
+                        new Item(2, "Third item"),
+                        new Item(1, "Second item"),
+                        new Item(0, "First item")
+        );
+        List<Item>.compare(expected, itemList);
     }
+
+    @Test
+    public void whenCompatorByPriorityDesc() {
+        Comparator<Item> cmpName = new SortByIdIncrease();
+        int rsl = cmpName.compare(
+                new Item(1, "First item"),
+                new Item(0, "Second item")
+        );
+        assertThat(rsl, greaterThan(0));
+    }
+
 }
