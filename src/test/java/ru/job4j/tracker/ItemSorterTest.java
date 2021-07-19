@@ -2,7 +2,9 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
@@ -12,22 +14,19 @@ public class ItemSorterTest {
 
     @Test
     public void whenSortByIdDecrease() {
-        Comparator<Item> cmpName = new SortByIdDecrease();
-        int rsl = cmpName.compare(
-                new Item(1, "First item"),
-                new Item(0, "Second item")
-        );
-        assertThat(rsl, lessThan(0));
+        List<Item> itemList = new List<Item>() {
+                new Item(0, "First item"),
+                new Item(2, "Third item"),
+                new Item(3, "Fourth item"),
+                new Item(1, "Second item")
+        };
+        Collections.sort(itemList, new SortByIdDecrease());
+        List<Item> expected = new List<Item>() {
+                        Item(3,"Fourth item"),
+                        Item(2, "Third item"),
+                        Item(1, "Second item"),
+                        Item(0, "First item")
+        };
+        assertThat(expected, itemList);
     }
-
-    @Test
-    public void whenCompatorByPriorityDesc() {
-        Comparator<Item> cmpName = new SortByIdIncrease();
-        int rsl = cmpName.compare(
-                new Item(1, "First item"),
-                new Item(0, "Second item")
-        );
-        assertThat(rsl, greaterThan(0));
-    }
-
 }
