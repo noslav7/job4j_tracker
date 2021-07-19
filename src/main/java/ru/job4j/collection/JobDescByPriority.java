@@ -5,7 +5,7 @@ import java.util.Comparator;
 public class JobDescByPriority implements Comparator<Job> {
 
     @Override
-    public int compare(Job o1, Job o2) {
+    public int compare(Job o2, Job o1) {
         return Integer.compare(o2.getPriority(), o1.getPriority());
     }
 }
