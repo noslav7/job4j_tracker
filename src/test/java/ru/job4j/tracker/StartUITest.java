@@ -1,11 +1,12 @@
 package ru.job4j.tracker;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.hamcrest.core.Is.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 public class  StartUITest {
 
@@ -39,7 +40,7 @@ public class  StartUITest {
                 new Exit(output)
         };
         new StartUI(output).init(in, tracker, Arrays.asList(actions));
-        assertThat(tracker.findById(item.getId()), is("null"));
+        Assert.assertNull(tracker.findById(item.getId()));
     }
 
     @Test

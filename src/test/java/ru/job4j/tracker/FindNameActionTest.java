@@ -1,7 +1,14 @@
 package ru.job4j.tracker;
 
+import org.junit.Test;
+
+import java.util.Arrays;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 public class FindNameActionTest {
-/*
+
     @Test
     public void execute() {
         Output output = new StubOutput();
@@ -16,7 +23,7 @@ public class FindNameActionTest {
                 new Exit(output)
         };
         String ln = System.lineSeparator();
-        new StartUI(output).init(in, tracker, actions);
+        new StartUI(output).init(in, tracker, Arrays.asList(actions));
         assertThat(output.toString(), is(
                 "Menu:" + ln
                         + "0. Find item by name" + ln
@@ -27,5 +34,5 @@ public class FindNameActionTest {
                         + "0. Find item by name" + ln
                         + "1. Exit" + ln
         ));
-    }*/
+    }
 }
