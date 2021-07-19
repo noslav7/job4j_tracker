@@ -12,7 +12,9 @@ public class  ItemSorter {
                 new Item(2, "Third item")
         );
         System.out.println(items);
-        Collections.sort(items, null);
+        Collections.sort(items, new SortByIdDecrease());
+        System.out.println(items);
+        Collections.sort(items, new SortByIdIncrease());
         System.out.println(items);
     }
 }
