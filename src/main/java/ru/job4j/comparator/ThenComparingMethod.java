@@ -1,6 +1,11 @@
 package ru.job4j.comparator;
 
 
+import ru.job4j.tracker.Item;
+
+import java.util.Comparator;
+import java.util.Objects;
+
 public class ThenComparingMethod {
 /*
     public static class User implements Comparator<User> {
@@ -19,6 +24,11 @@ public class ThenComparingMethod {
 
         public int getAge() {
             return age;
+        }
+
+        @Override
+        public int compare(User o1, User o2) {
+            return 0;
         }
 
         @Override
@@ -45,11 +55,12 @@ public class ThenComparingMethod {
     }
 
     public static Comparator<User> ascByName() {
-        // return ...
+        return o1.getName().compareTo(o2.getName());
     }
 
-    public static Comparator<User> descByAge() {
-        // return ...
-    }
-*/
+    public static Comparator<User> descByAge(User o1, User o2) {
+        Comparator<String>
+        return Integer.compare(o2.getAge(), o1.getAge());
+        }
+    }*/
 }
