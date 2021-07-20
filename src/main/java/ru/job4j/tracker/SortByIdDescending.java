@@ -2,10 +2,10 @@ package ru.job4j.tracker;
 
 import java.util.Comparator;
 
-public class  SortByIdIncrease implements Comparator<Item> {
+public class SortByIdDescending implements Comparator<Item> {
 
     @Override
     public int compare(Item first, Item second) {
-        return Integer.compare(first.getId(), second.getId());
+        return Integer.compare(second.getId(), first.getId());
     }
 }
