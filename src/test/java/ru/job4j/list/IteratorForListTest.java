@@ -23,4 +23,6 @@ public class IteratorForListTest {
                 + "Next element has - false" + ln;
         assertThat(out.toString(), is(expected));
     }
-}*/
+}
+
+ */

@@ -12,4 +12,6 @@ public class IteratorForList {
         }
         System.out.println("Next element has - " + list.iterator() + 1]);
     }
-}*/
+}
+
+ */
