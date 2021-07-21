@@ -6,10 +6,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 public class ListSortTest {
-/*
+
     @Test
     public void test() {
         List<String> input = Arrays.asList(null, "a", "b", "c");
@@ -17,5 +15,5 @@ public class ListSortTest {
         List<String> expect = Arrays.asList("c", "b", "a", null);
         Assert.assertEquals(expect, result);
     }
-*/
+
 }
