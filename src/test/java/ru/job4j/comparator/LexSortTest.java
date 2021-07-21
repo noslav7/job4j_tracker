@@ -6,7 +6,7 @@ import java.util.Arrays;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class LexSortTest {
+public class  LexSortTest {
 
     @Test
     public void sortNum1and2and10() {
