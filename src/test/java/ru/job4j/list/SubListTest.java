@@ -9,7 +9,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class SubListTest {
-/*
+
     private List<String> list = new ArrayList<>();
 
     @Before
@@ -39,5 +39,5 @@ public class SubListTest {
         List<String> expected = List.of();
         assertThat(result, is(expected));
     }
-*/
+
 }
