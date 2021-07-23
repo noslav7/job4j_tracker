@@ -8,7 +8,7 @@ public class Jackpot {
     public static boolean checkYourWin(String[] combination) {
         boolean win = false;
         Set<String> uniqueElements = new HashSet<String>(Arrays.asList(combination));
-        if (uniqueElements.size() == 1){
+        if (uniqueElements.size() == 1) {
             win = true;
         }
         return win;

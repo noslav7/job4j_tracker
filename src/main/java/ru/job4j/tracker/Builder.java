@@ -14,7 +14,8 @@ public class Builder extends Engineer {
     }
 
     public static void main(String[] args) {
-        Builder architect = new Builder("Олег", "Сергеев", "Политехничский институт", "10.05.1960", true);
+        Builder architect = new Builder("Олег", "Сергеев",
+                "Политехничский институт", "10.05.1960", true);
         architect.getName();
         architect.getSirname();
         architect.getBirthday();

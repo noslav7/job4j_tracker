@@ -3,7 +3,8 @@ package ru.job4j.tracker;
 public class Doctor extends Profession {
 private String speciality;
 
-    public Doctor(String name, String sirname, String education, String birthday, String speciality) {
+    public Doctor(String name, String sirname, String education, String birthday,
+                  String speciality) {
         super(name, sirname, education, birthday);
         this.speciality = speciality;
     }
@@ -19,7 +20,8 @@ private String speciality;
     }
 
     public static void main(String[] args) {
-        Doctor neurologist = new Doctor("Игорь", "Столяров", "Медицинский институт", "01.04.1955", "Невролог");
+        Doctor neurologist = new Doctor("Игорь", "Столяров",
+                "Медицинский институт", "01.04.1955", "Невролог");
         neurologist.getName();
         neurologist.getSirname();
         neurologist.getBirthday();

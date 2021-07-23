@@ -8,7 +8,8 @@ public class  AllTransportation {
    Vehicle internationalPlane = new Plane();
    Vehicle cargoTrain = new Train();
    Vehicle passengerTrain = new Train();
-   Vehicle[] allTransport = { urbanBus, countryBus, nationalPlane, internationalPlane, cargoTrain, passengerTrain };
+   Vehicle[] allTransport = {urbanBus, countryBus, nationalPlane,
+           internationalPlane, cargoTrain, passengerTrain};
    for (Vehicle index : allTransport) {
        index.move();
        index.hasFuel();

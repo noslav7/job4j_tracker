@@ -4,8 +4,10 @@ public class HTMLReport extends TextReport {
 
     @Override
     public String generate(String name, String body) {
-        return "<h1>" + name + "</h1>" +
-                "<br/>" +
-                "<span>" + body + "</span>";
+        return "<h1>" + name + "</h1>"
+                + "<br/>"
+                + "<span>"
+                + body
+                + "</span>";
     }
 }

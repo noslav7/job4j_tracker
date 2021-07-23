@@ -21,7 +21,7 @@ public class ItemSorterTest {
         );
         Collections.sort(itemList, new SortByIdDescending());
         List<Item> expected = List.of(
-                        new Item(3,"Fourth item"),
+                        new Item(3, "Fourth item"),
                         new Item(2, "Third item"),
                         new Item(1, "Second item"),
                         new Item(0, "First item")
@@ -42,7 +42,7 @@ public class ItemSorterTest {
                 new Item(0, "First item"),
                 new Item(1, "Second item"),
                 new Item(2, "Third item"),
-                new Item(3,"Fourth item")
+                new Item(3, "Fourth item")
         );
         assertEquals(expected, itemList);
     }
