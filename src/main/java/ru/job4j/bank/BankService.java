@@ -2,13 +2,33 @@ package ru.job4j.bank;
 
 import java.util.*;
 
+/**
+ * Класс описывает работу основных банковских услуг, которые предоставляются
+ * по банковским счетам клиентов.
+ * @author VALENTIN RACHKOV
+ * @version 1.0
+ */
 public class BankService {
+    /**
+     * Это поле содержит всех пользователей системы с привязанными к ним счетами.
+     */
     private final Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * Этот метод должен добавить пользователя в систему.
+     * @param user пользователь, зарегистрированный в системе.
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
+    /**
+     * Метод должен добавить новый счет к пользователю.
+     * @param passport данные паспорта, по которым необходимо
+     *                 првоначально найти пользователя.
+     * @param account получаемый затем список всех счетов пользователя, в
+     *               который в результате добавляется новый счет.
+     */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null && !users.get(user).contains(account)) {
@@ -16,6 +36,12 @@ public class BankService {
         }
     }
 
+    /**
+     * Данный метод ищет пользователя по номеру паспорта.
+     * @param passport данные паспорта.
+     * @return зарегистрированный пользователь или null,
+     * если пользователь не найден.
+     */
     public User findByPassport(String passport) {
         for (User user : users.keySet()) {
             if (user.getPassport().equals(passport)) {
@@ -25,6 +51,14 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Этот метод ищет счет пользователя по реквизитам.
+     * @param passport сначала необходимо найти пользователя по данным паспоррта.
+     * @param requisite затем получить список счетов этого пользователя
+     *                 и в нем найти счет.
+     * @return номер искомого счета пользователя или null,
+     * счет по указанным реквизитам не найлен.
+     */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -37,6 +71,17 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Метод для перечисления денег с одного счёта на другой счёт.
+     * @param srcPassport номер паспорта пользователя отправителя платежа.
+     * @param srcRequisite реквизиты счета пользователя отправителя платежа.
+     * @param destPassport номер паспорта получателя перечисления.
+     * @param destRequisite реквизиты счета получателя перечисления.
+     * @param amount перечисляемая сумма.
+     * @return Если счёт не найден или не хватает денег на счёте srcAccount
+     * (с которого переводят), то метод должен вернуть false. Если счет найден
+     * и средств для перевода достаточно, то метод вернет true.
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
@@ -50,6 +95,10 @@ public class BankService {
         return rsl;
     }
 
+    /**
+     * Метод создает новый счет, а также добавляет его в список счетов и
+     * выводит на экран реквизиты данного счета и его текущий баланс.
+     */
     public static void main(String[] args) {
         List<Account> accounts = new ArrayList<>();
         String requisite = "3fdsbb9";
