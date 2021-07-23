@@ -18,3 +18,7 @@ notifications:
       - noslav7@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
+
+env:
+  global:
+    CODECOV_TOKEN='b374c83e-6006-4885-8052-6313ea363964'
