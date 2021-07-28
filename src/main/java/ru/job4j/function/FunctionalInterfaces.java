@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.function.*;
 
 public class FunctionalInterfaces {
+    /*
     public static void main(String[] args) {
         Map<Integer, String> map = new HashMap<>();
         BiConsumer<Integer, String> biCon = (i, s) -> map.put(i, s);;
@@ -30,5 +31,5 @@ public class FunctionalInterfaces {
         Function<String, String> func = (s) -> s.toUpperCase();
         for (String s : strings) {
            System.out.println(s);
-        }
+        }*/
     }

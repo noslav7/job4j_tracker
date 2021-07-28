@@ -7,8 +7,12 @@ import java.util.function.*;
 
 public class FunctionInterfaceUsage {
     public static void main(String[] args) {
-        BiFunction<String, Integer, String> biFunc = (s, i) -> s.concat(" ").concat(i.toString());
-        System.out.println("Результат работы функции: " + biFunc.apply("Name", 123));
-        System.out.println("Результат работы функции: " + biFunc.apply("String number", 12345));
-        }
+        BinaryOperator<StringBuilder> builder = (b1, b2) -> b1.append(" ").append(b2);
+        System.out.println(
+                "Строка после объединения: " + builder.apply(
+                        new StringBuilder("First string"),
+                        new StringBuilder("Second string")
+                )
+        );
     }
+}
