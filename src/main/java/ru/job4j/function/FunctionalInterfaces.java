@@ -1,9 +1,6 @@
 package ru.job4j.function;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.*;
 
 public class FunctionalInterfaces {
@@ -32,6 +29,8 @@ public class FunctionalInterfaces {
         Function<String, String> func = (s) -> s.toUpperCase();
         for (String s : sup.get()) {
             con.accept(func.apply(s));
+
+            Comparator<String> cmpDescSize = (left, right) -> Integer.compare(right.length(), left.length());
         }
     }
 }
