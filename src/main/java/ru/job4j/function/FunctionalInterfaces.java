@@ -29,6 +29,6 @@ public class FunctionalInterfaces {
         Function<String, String> func = (s) -> s.toUpperCase();
         for (String s : sup.get()) {
             con.accept(func.apply(s));
+            }
         }
     }
-}
