@@ -10,7 +10,7 @@ public class SearchFolder {
         List<Folder> folders = new ArrayList<>();
         pred = s -> s.getName().contains("bug");
         for (Folder f : list) {
-            if (pred.test(f)) {
+            if (pred.test(f))  {
                 folders.add(f);
             }
         }
