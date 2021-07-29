@@ -6,12 +6,10 @@ import java.util.function.Function;
 
 public class Diapason {
 
-    List<Double> diapason(int start, int end, Function<Double, Double> func) {
+    List<Double> diapason(int start, int end, Function<Double, Double> func) { //Как учитываются в решении результаты 3 необходимых функций?
         List<Double> results = new ArrayList<>();
-        for (int i = start; i <= end; ...) {
-            results.add(func.apply((double) start));
-            results.add(func.apply((double) start * start));
-            results.add(func.apply((double) (end ^ start)));
+        for (int i = start; i <= end; i++) {
+            results.add(func.apply((double) i));
         }
     return results;
     }
