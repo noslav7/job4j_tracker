@@ -8,12 +8,9 @@ public class Diapason {
 
     List<Double> diapason(int start, int end, Function<Double, Double> func) {
         List<Double> results = new ArrayList<>();
-        Function<Double, Double> linear = s -> s;
-        results.add(linear.apply((double) start));
-        Function<Double, Double> square = s -> s * s;
-        results.add(square.apply((double) start * start));
-        Function<Double, Double> exponential = s -> Math.pow(start, s);
-        results.add(exponential.apply((double) (start ^ end)));
+        results.add(func.apply((double) start));
+        results.add(func.apply((double) start * start));
+        results.add(func.apply((double) (start ^ end)));
     return results;
     }
 }
