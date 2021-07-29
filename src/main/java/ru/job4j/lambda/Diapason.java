@@ -16,5 +16,5 @@ public class Diapason {
         results.add(exponential.apply((double) (start ^ end)));
     return results;
     }
-    }
+}
 
