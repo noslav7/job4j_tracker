@@ -12,7 +12,7 @@ public class Diapason {
         results.add(linear.apply((double) start));
         Function<Double, Double> square = s -> s * s;
         results.add(square.apply((double) start * start));
-        Function<Double, Double> exponential = s -> (int) s ^ (int) s;
+        Function<Double, Double> exponential = s -> Math.pow(start, s);
         results.add(exponential.apply((double) (start ^ end)));
     return results;
     }
