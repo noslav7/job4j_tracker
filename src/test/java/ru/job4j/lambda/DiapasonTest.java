@@ -16,8 +16,8 @@ public class DiapasonTest {
 
     @Test
     public void whenSquareFunctionThenSquareResults() {
-        List<Double> result = Diapason.diapason(1, 4, x -> x * x);
-        List<Double> expected = Arrays.asList(1D, 4D, 9D, 16D);
+        List<Double> result = Diapason.diapason(1, 4, x -> 2 * x * x);
+        List<Double> expected = Arrays.asList(2D, 8D, 18D, 32D);
         assertThat(result, is(expected));
     }
 
