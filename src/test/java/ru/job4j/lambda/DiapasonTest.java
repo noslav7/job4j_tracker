@@ -20,7 +20,4 @@ public class DiapasonTest {
         List<Double> expected = Arrays.asList(2D, 8D, 18D, 32D);
         assertThat(result, is(expected));
     }
-
-
-
 }
