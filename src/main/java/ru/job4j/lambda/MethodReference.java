@@ -1,15 +1,15 @@
 package ru.job4j.lambda;
+import java.util.function.Consumer;
 
 public class MethodReference {
 
-    /*
     public void applyByInstance() {
-        // your code here
+        Consumer<String> consumer = (s) -> consumerByInstance(s);
         consumer.accept("Hello");
     }
 
     public static void applyByClass() {
-        // your code here
+        Consumer<String> consumer = (s) -> MethodReference.consumerByClass(s);
         consumer.accept("Hello");
     }
 
@@ -20,6 +20,4 @@ public class MethodReference {
     private static void consumerByClass(String input) {
         System.out.print("From class: " + input);
     }
-
-     */
 }

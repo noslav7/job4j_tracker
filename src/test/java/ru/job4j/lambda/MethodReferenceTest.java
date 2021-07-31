@@ -1,15 +1,14 @@
 package ru.job4j.lambda;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MethodReferenceTest {
-/*
+
     @Test
     public void whenByClass() {
         PrintStream before = System.out;
@@ -31,7 +30,4 @@ public class MethodReferenceTest {
         assertEquals("From instance: Hello", buffer.toString());
         System.setOut(before);
     }
-
- */
-
 }
