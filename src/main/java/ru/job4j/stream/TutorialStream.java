@@ -1,12 +1,7 @@
 package ru.job4j.stream;
 
-import ru.job4j.search.Task;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class TutorialStream {
+    /*
     public static class AnotherArray {
         private static int number;
 
@@ -29,5 +24,5 @@ public class TutorialStream {
         List<Integer> negativeArray = array.stream().filter(
                 AnotherArray -> AnotherArray.number > 0
         ).collect(Collectors.toList());
-    }
+    }*/
 }
