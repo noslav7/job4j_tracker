@@ -17,8 +17,10 @@ public class StreamIterateTest {
         StreamIterate.showArray(data);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "1" + ln +
-                        "3" + ln
+                "1"
+                        + ln
+                        + "3"
+                        + ln
         ));
     }
 
