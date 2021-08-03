@@ -1,12 +1,5 @@
 package ru.job4j.stream;
 
-import org.junit.Test;
-
-import java.util.Iterator;
-import java.util.List;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
-
 public class FlatItTest {
 /*
     @Test

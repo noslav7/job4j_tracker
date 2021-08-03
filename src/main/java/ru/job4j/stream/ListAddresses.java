@@ -1,9 +1,7 @@
 package ru.job4j.stream;
 
-import java.util.Comparator;
-import java.util.List;
-
 public class ListAddresses {
+    /*
     public static void main(String[] args) {
         List<Address> addresses = List.of(
                 new Address("Yekaterinburg", "Lenina", 51, 370),
@@ -17,5 +15,5 @@ public class ListAddresses {
                 .sorted(Comparator<Address>())
                 .distinct()
                 .forEach(System.out::println);
-    }
+    }*/
 }
