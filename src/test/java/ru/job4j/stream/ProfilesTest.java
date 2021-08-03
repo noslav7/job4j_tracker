@@ -10,8 +10,8 @@ import static org.junit.Assert.assertThat;
 public class ProfilesTest {
 
     @Test
-    public void whenCollectClassA() {
-        List<Profile> profiles = new ArrayList<>(
+    public void whenFiveProfiles() {
+        List<Profile> profiles = new ArrayList<Profile>(
                 new Profile(new Address("Yekaterinburg", "Studencheskaya", 51, 413)),
                 new Profile(new Address("Yekaterinburg", "Malysheva", 110, 185)),
                 new Profile(new Address("Yekaterinburg", "Soyuznaya", 6, 401)),
