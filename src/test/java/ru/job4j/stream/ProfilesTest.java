@@ -2,16 +2,17 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class ProfilesTest {
-/*
+
     @Test
     public void whenFiveProfiles() {
-        List<Profile> profiles = new ArrayList<>(
+        List<Profile> profiles = Arrays.asList(
                 new Profile(new Address("Yekaterinburg", "Studencheskaya", 51, 413)),
                 new Profile(new Address("Yekaterinburg", "Malysheva", 110, 185)),
                 new Profile(new Address("Yekaterinburg", "Soyuznaya", 6, 401)),
@@ -27,5 +28,5 @@ public class ProfilesTest {
                         new Address("Yekaterinburg", "Lenina", 51, 370)
                 );
         assertThat(addresses, is(expected));
-    }*/
+    }
 }
