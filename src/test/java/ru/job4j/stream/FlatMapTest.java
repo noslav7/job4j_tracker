@@ -2,14 +2,12 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
-public class FlatMapTest {
+public class  FlatMapTest {
 
     @Test
     public void whenFlatMap() {
