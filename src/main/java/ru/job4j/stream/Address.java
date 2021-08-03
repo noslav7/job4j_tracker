@@ -1,9 +1,8 @@
 package ru.job4j.stream;
 
 import java.util.Objects;
-import java.util.function.Function;
 
-public class Address {
+public class  Address {
     private String city;
 
     private String street;
