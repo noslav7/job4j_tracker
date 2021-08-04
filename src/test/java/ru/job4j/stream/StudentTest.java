@@ -21,12 +21,14 @@ public class StudentTest {
                 new Student(5, "Surname3"),
                 new Student(5, "Surname3")
         );
+
         Map<String, Student> map = new HashMap<>();
-        StudentsMap result = new StudentsMap();
-        result.collect(students);
         map.put("Surname1", new Student(3, "Surname1"));
         map.put("Surname2", new Student(4, "Surname2"));
         map.put("Surname3", new Student(5, "Surname3"));
-        assertThat(map, is(result));
+
+        StudentsMap result = new StudentsMap();
+        Map<String, Student> outcome = result.collect(students);
+        assertThat(map, is(outcome));
     }
 }
