@@ -31,8 +31,8 @@ public class College {
     }
 
     public static void main(String[] args) {
-        Map<StudentStreamAPI, Set<Subject>> students = Map.of(new StudentStreamAPI
-                        ("Student", "000001", "201-18-15"),
+        Map<StudentStreamAPI, Set<Subject>> students = Map.of(
+                new StudentStreamAPI("Student", "000001", "201-18-15"),
                 Set.of(
                         new Subject("Math", 70),
                         new Subject("English", 85)
