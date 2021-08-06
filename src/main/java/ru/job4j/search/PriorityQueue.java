@@ -3,13 +3,13 @@ package ru.job4j.search;
 import java.util.LinkedList;
 
 public class PriorityQueue {
-    /*
+
     private LinkedList<Task> tasks = new LinkedList<>();
 
     public int put(Task task) {
-        int index = 0;
+        var index = 0;
         for (Task element : tasks) {
-            if (element.getPriority() > task.getPriority()) {
+            if (element.getNumber() > task.getNumber()) {
                 break;
             }
             index++;
@@ -21,5 +21,4 @@ public class PriorityQueue {
     public Task take() {
         return tasks.poll();
     }
-    */
 }

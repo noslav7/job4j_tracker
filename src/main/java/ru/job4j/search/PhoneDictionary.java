@@ -21,7 +21,7 @@ public class PhoneDictionary {
                 or(comparePhone).or(compareAddress);
 
         ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
+        for (var person : persons) {
             if (general.test(person)) {
                 result.add(person);
             }
