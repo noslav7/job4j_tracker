@@ -9,6 +9,7 @@ import java.util.*;
  * @version 1.0
  */
 public class BankService {
+
     /**
      * Это поле содержит всех пользователей системы с привязанными к ним счетами.
      */
@@ -30,8 +31,8 @@ public class BankService {
      *               который в результате добавляется новый счет.
      */
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
-        if (user != null && !users.get(user).contains(account)) {
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent() && !users.get(user).contains(account)) {
             users.get(user).add(account);
         }
     }
@@ -59,6 +60,7 @@ public class BankService {
      * @return номер искомого счета пользователя или null,
      * счет по указанным реквизитам не найден.
      */
+    /*
     public Optional<User> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
@@ -69,7 +71,7 @@ public class BankService {
             return user;
         }
 
-    }
+    }*/
 
     /**
      * Метод для перечисления денег с одного счёта на другой счёт.
@@ -82,9 +84,9 @@ public class BankService {
      * (с которого переводят), то метод должен вернуть false. Если счет найден
      * и средств для перевода достаточно, то метод вернет true.
      */
-    public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String destRequisite, double amount) {
-        boolean rsl = false;
+    public void transferMoney(String srcPassport, String srcRequisite,
+                                 String destPassport, String destRequisite, double amount) {}}
+        /*boolean rsl = false;
         var srcAccount = findByRequisite(srcPassport, srcRequisite);
         var destAccount = findByRequisite(destPassport, destRequisite);
         if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
@@ -93,12 +95,13 @@ public class BankService {
             rsl = true;
         }
         return rsl;
-    }
+    }*/
 
     /**
      * Метод создает новый счет, а также добавляет его в список счетов и
      * выводит на экран реквизиты данного счета и его текущий баланс.
      */
+    /*
     public static void main(String[] args) {
         List<Account> accounts = new ArrayList<>();
         String requisite = "3fdsbb9";
@@ -106,5 +109,5 @@ public class BankService {
         int index = accounts.indexOf(new Account(requisite, -1));
         Account find = accounts.get(index);
         System.out.println(find.getRequisite() + " -> " + find.getBalance());
-    }
-}
+
+}*/
