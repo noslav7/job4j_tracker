@@ -6,7 +6,6 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.*;
 
 public class StudentLevelTest {
 
@@ -14,9 +13,9 @@ public class StudentLevelTest {
     public void whenSorted() {
         List<Student> input = new ArrayList<>();
         input.add(new Student(28, "Masha"));
-        input.add(new Student(128, "Pety"));
+        input.add(new Student(128, "Petya"));
         List<Student> expected = List.of(
-                new Student(128, "Pety"),
+                new Student(128, "Petya"),
                 new Student(28, "Masha")
         );
         assertThat(StudentLevel.levelOf(input, 20), is(expected));
