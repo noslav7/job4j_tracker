@@ -17,6 +17,7 @@ public class BankService {
 
     /**
      * Этот метод должен добавить пользователя в систему.
+     *
      * @param user пользователь, зарегистрированный в системе.
      */
     public void addUser(User user) {
@@ -25,31 +26,32 @@ public class BankService {
 
     /**
      * Метод должен добавить новый счет к пользователю.
+     *
      * @param passport данные паспорта, по которым необходимо
      *                 первоначально найти пользователя.
-     * @param account получаемый затем список всех счетов пользователя, в
-     *               который в результате добавляется новый счет.
+     * @param account  получаемый затем список всех счетов пользователя, в
+     *                 который в результате добавляется новый счет.
      */
-    public void addAccount(String passport, Account account) {
+    public boolean addAccount(String passport, Account account) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent() && !users.get(user).contains(account)) {
             users.get(user).add(account);
         }
+        return user.isPresent();
     }
 
     /**
      * Данный метод ищет пользователя по номеру паспорта.
+     *
      * @param passport данные паспорта.
      * @return зарегистрированный пользователь или null,
      * если пользователь не найден.
      */
     public Optional<User> findByPassport(String passport) {
-        Optional<User> passportOptional = Optional.empty();
-        passportOptional = users.keySet()
-                          .stream()
-                          .filter(s -> s.getPassport().equals(passport))
-                          .findFirst();
-              return passportOptional;
+        return users.keySet()
+                .stream()
+                .filter(s -> s.getPassport().equals(passport))
+                .findFirst();
     }
 
     /**
@@ -60,48 +62,49 @@ public class BankService {
      * @return номер искомого счета пользователя или null,
      * счет по указанным реквизитам не найден.
      */
-    /*
-    public Optional<User> findByRequisite(String passport, String requisite) {
+
+    public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            user = account.keySet()
+            return users.get(user)
                     .stream()
                     .filter(s -> s.getRequisite().equals(requisite))
                     .findFirst();
-            return user;
         }
-
-    }*/
+        return Optional.empty();
+    }
 
     /**
      * Метод для перечисления денег с одного счёта на другой счёт.
-     * @param srcPassport номер паспорта пользователя отправителя платежа.
-     * @param srcRequisite реквизиты счета пользователя отправителя платежа.
-     * @param destPassport номер паспорта получателя перечисления.
+     *
+     * @param srcPassport   номер паспорта пользователя отправителя платежа.
+     * @param srcRequisite  реквизиты счета пользователя отправителя платежа.
+     * @param destPassport  номер паспорта получателя перечисления.
      * @param destRequisite реквизиты счета получателя перечисления.
-     * @param amount перечисляемая сумма.
+     * @param amount        перечисляемая сумма.
      * @return Если счёт не найден или не хватает денег на счёте srcAccount
      * (с которого переводят), то метод должен вернуть false. Если счет найден
      * и средств для перевода достаточно, то метод вернет true.
      */
-    public void transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String destRequisite, double amount) {}}
-        /*boolean rsl = false;
-        var srcAccount = findByRequisite(srcPassport, srcRequisite);
-        var destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
-            srcAccount.setBalance(srcAccount.getBalance() - amount);
-            destAccount.setBalance(destAccount.getBalance() + amount);
+    public boolean transferMoney(String srcPassport, String srcRequisite,
+                                 String destPassport, String destRequisite, double amount) {
+        boolean rsl = false;
+        Optional<Account> srcAccount = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
+        if (srcAccount.isPresent() && destAccount.isPresent() && srcAccount.get().getBalance() >= amount) {
+            srcAccount.get().setBalance(srcAccount.get().getBalance() - amount);
+            destAccount.get().setBalance(destAccount.get().getBalance() + amount);
             rsl = true;
         }
         return rsl;
-    }*/
+    }
+
 
     /**
      * Метод создает новый счет, а также добавляет его в список счетов и
      * выводит на экран реквизиты данного счета и его текущий баланс.
      */
-    /*
+
     public static void main(String[] args) {
         List<Account> accounts = new ArrayList<>();
         String requisite = "3fdsbb9";
@@ -110,4 +113,5 @@ public class BankService {
         Account find = accounts.get(index);
         System.out.println(find.getRequisite() + " -> " + find.getBalance());
 
-}*/
+    }
+}
