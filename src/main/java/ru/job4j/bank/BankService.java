@@ -32,6 +32,7 @@ public class BankService {
      * @param account  получаемый затем список всех счетов пользователя, в
      *                 который в результате добавляется новый счет.
      */
+
     public boolean addAccount(String passport, Account account) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent() && !users.get(user.get()).contains(account)) {
@@ -86,19 +87,21 @@ public class BankService {
      * (с которого переводят), то метод должен вернуть false. Если счет найден
      * и средств для перевода достаточно, то метод вернет true.
      */
+
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
         Optional<Account> srcAccount = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount.isPresent() && destAccount.isPresent() && srcAccount.get().getBalance() >= amount) {
+        if (srcAccount.isPresent()
+                && destAccount.isPresent()
+                && srcAccount.get().getBalance() >= amount) {
             srcAccount.get().setBalance(srcAccount.get().getBalance() - amount);
             destAccount.get().setBalance(destAccount.get().getBalance() + amount);
             rsl = true;
         }
         return rsl;
     }
-
 
     /**
      * Метод создает новый счет, а также добавляет его в список счетов и
@@ -112,6 +115,5 @@ public class BankService {
         int index = accounts.indexOf(new Account(requisite, -1));
         Account find = accounts.get(index);
         System.out.println(find.getRequisite() + " -> " + find.getBalance());
-
     }
 }
