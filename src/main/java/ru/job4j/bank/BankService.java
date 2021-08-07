@@ -37,7 +37,6 @@ public class BankService {
         if (user.isPresent() && !users.get(user).contains(account)) {
             users.get(user).add(account);
         }
-        return user.isPresent();
     }
 
     /**
