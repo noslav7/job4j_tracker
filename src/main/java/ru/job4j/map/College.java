@@ -29,7 +29,7 @@ public class College {
             Set<Subject> subjects = students.get(s.get());
             for (Subject subj : subjects) {
                 if (name.equals(subj.getName())) {
-                    rsl = subjects;
+                    rsl = Optional.of(subj);
                     break;
                 }
             }
