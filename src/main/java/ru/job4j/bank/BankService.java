@@ -34,9 +34,10 @@ public class BankService {
      */
     public boolean addAccount(String passport, Account account) {
         Optional<User> user = findByPassport(passport);
-        if (user.isPresent() && !users.get(user).contains(account)) {
-            users.get(user).add(account);
+        if (user.isPresent() && !users.get(user.get()).contains(account)) {
+            users.get(user.get()).add(account);
         }
+        return user.isPresent();
     }
 
     /**
@@ -65,7 +66,7 @@ public class BankService {
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            return users.get(user)
+            return users.get(user.get())
                     .stream()
                     .filter(s -> s.getRequisite().equals(requisite))
                     .findFirst();
