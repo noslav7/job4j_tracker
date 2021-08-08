@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class Subject {
     private String name;
-
     private int score;
 
     public Subject(String name, int score) {
