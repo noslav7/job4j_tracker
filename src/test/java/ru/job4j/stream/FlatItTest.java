@@ -1,7 +1,14 @@
 package ru.job4j.stream;
+import org.junit.Test;
+
+import java.util.Iterator;
+import java.util.List;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class FlatItTest {
-/*
+
     @Test
     public void whenIt() {
 
@@ -13,5 +20,5 @@ public class FlatItTest {
                 FlatIt.flatten(it),
                 is(List.of(1, 2, 3))
         );
-    }*/
+    }
 }
