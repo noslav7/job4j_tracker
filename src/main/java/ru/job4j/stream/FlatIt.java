@@ -10,9 +10,11 @@ import java.util.stream.StreamSupport;
 public class FlatIt {
 
     public static List<Integer> flatten(Iterator<Iterator<Integer>> it) {
-                 return StreamSupport.stream(Spliterators.spliteratorUnknownSize(it, Spliterator.ORDERED), false)
+                 return StreamSupport.stream(Spliterators.spliteratorUnknownSize(it,
+                                 Spliterator.ORDERED), false)
                 .flatMap(inner -> StreamSupport.stream(
-                        Spliterators.spliteratorUnknownSize(inner, Spliterator.ORDERED), false))
+                        Spliterators.spliteratorUnknownSize(inner,
+                                Spliterator.ORDERED), false))
                 .collect(Collectors.toList());
     }
 }
