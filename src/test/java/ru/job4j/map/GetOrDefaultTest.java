@@ -9,7 +9,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class GetOrDefaultTest {
-/*
+
     @Test
     public void whenGetList() {
         List<String> list = List.of("one", "two", "three");
@@ -44,5 +44,4 @@ public class GetOrDefaultTest {
         List<String> value = get.getValue(1);
         assertThat(value, is(list));
     }
-*/
 }

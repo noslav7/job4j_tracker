@@ -9,7 +9,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class ComputeIfPresentTest {
-/*
+
     @Test
     public void collectData() {
         Map<Integer, String> name = new HashMap<>(Map.of(1, "Bill", 2, "Donald"));
@@ -18,5 +18,4 @@ public class ComputeIfPresentTest {
         Map<Integer, String> expected = Map.of(1, "Bill Clinton", 2, "Donald Trump");
         assertThat(rsl, is(expected));
     }
-*/
 }

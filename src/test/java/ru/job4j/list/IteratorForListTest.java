@@ -1,12 +1,13 @@
 package ru.job4j.list;
 
 import org.junit.Test;
-import static org.hamcrest.core.Is.is;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.*;
-/*
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 public class IteratorForListTest {
 
     @Test
@@ -24,5 +25,3 @@ public class IteratorForListTest {
         assertThat(out.toString(), is(expected));
     }
 }
-
- */

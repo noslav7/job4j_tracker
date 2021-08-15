@@ -9,10 +9,8 @@ public class IteratorForList {
         Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()) {
             System.out.println("Next element has - "
-                    + true + ", this element is " + list.iterator());
+                    + true + ", this element is " + iterator.next());
         }
-        /*
-        System.out.println("Next element has - " + list.iterator() + 1]);
-        */
+        System.out.println("Next element has - " + false);
     }
 }

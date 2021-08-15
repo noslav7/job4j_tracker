@@ -1,7 +1,12 @@
 package ru.job4j.stream;
+import org.junit.Test;
+
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.*;
 
 public class GroupMethodTest {
-/*
     @Test
     public void test() {
         GroupMethod.User u1 = new GroupMethod.User(10, "Ivan");
@@ -17,5 +22,4 @@ public class GroupMethodTest {
                 List.of(u1, u2, u3, u4)
         ));
     }
-*/
 }

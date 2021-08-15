@@ -1,11 +1,13 @@
 package ru.job4j.stream;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class GroupMethod {
 
-}
+    public static class User {
 
-    class User {
-/*
         private int age;
 
         private String name;
@@ -28,8 +30,8 @@ public class GroupMethod {
                 return false;
             }
             User user = (User) o;
-            return age == user.age
-                    && Objects.equals(name, user.name);
+            return age == user.age &&
+                    Objects.equals(name, user.name);
         }
 
         @Override
@@ -41,7 +43,10 @@ public class GroupMethod {
     public static Map<Integer, List<User>> groupBy(List<User> users) {
         Map<Integer, List<User>> listMap = users.stream()
                 .collect(Collectors.groupingBy(
-                        Uder::age
+                        User::getAge
                 ));
-    }*/
+        listMap.entrySet().forEach(System.out::println);
+        return listMap;
+    }
 }
+
