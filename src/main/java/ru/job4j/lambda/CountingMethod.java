@@ -1,4 +1,4 @@
-package ru.job4j.stream;
+package ru.job4j.lambda;
 
 public class CountingMethod {
 
@@ -13,7 +13,6 @@ public class CountingMethod {
         public String getName() {
             return name;
         }
-
     }
 
     public static class Worker {
@@ -38,10 +37,9 @@ public class CountingMethod {
 /*
     public static Map<String, Long> groupAndCount(List<Worker> workers) {
         return workers.stream()
-                .collect(
-                        Collectors.groupingBy(
-                                Function.identity(),
-                                Collectors.counting()
-                        )).forEach((k, v) -> k, v);
+                .collect(Collectors.groupingBy(
+                        Function.identity(),
+                        Collectors.counting()
+                )).forEach((k, v) -> Collectors.toMap(k.toString(), v));
     }*/
 }
