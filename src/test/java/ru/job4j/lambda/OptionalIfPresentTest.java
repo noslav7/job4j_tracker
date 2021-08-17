@@ -1,7 +1,13 @@
 package ru.job4j.lambda;
+import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.Assert.*;
 
 public class OptionalIfPresentTest {
-/*
+
     @Test
     public void whenExist() {
         PrintStream before = System.out;
@@ -42,5 +48,5 @@ public class OptionalIfPresentTest {
                 buffer.toString()
         );
         System.setOut(before);
-    }*/
+    }
 }

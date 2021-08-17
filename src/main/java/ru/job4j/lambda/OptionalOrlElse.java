@@ -1,9 +1,10 @@
 package ru.job4j.lambda;
 
+import java.util.Optional;
+
 public class OptionalOrlElse {
-    /*
+
     public static Integer orElse(Optional<Integer> optional) {
-        // do refactor
-        return Optional.empty().orElse(1);
-        }*/
+        return optional.orElseGet(() -> -1);
+    }
 }
