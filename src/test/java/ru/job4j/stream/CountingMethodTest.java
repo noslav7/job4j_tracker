@@ -2,10 +2,11 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Map;
 
-import static ru.job4j.stream.CountingMethod.Company;
-import static ru.job4j.stream.CountingMethod.Worker;
+import static org.junit.Assert.*;
+import static ru.job4j.stream.CountingMethod.*;
 
 public class CountingMethodTest {
 
@@ -26,6 +27,6 @@ public class CountingMethodTest {
                 "Amazon", 2L,
                 "Microsoft", 3L
         );
-//        assertEquals(expect, CountingMethod.groupAndCount(List.of(w1, w2, w3, w4, w5, w6)));
+        assertEquals(expect, CountingMethod.groupAndCount(List.of(w1, w2, w3, w4, w5, w6)));
     }
 }

@@ -1,7 +1,9 @@
 package ru.job4j.lambda;
+import java.util.List;
+import java.util.Optional;
 
 public class OptionalOrElseThrow {
-    /*
+
     public static class User {
 
         private String login;
@@ -19,15 +21,16 @@ public class OptionalOrElseThrow {
     }
 
     public static User orElseThrow(List<User> list, String login) {
-        return search(list, login);
+        return search(list, login).orElseThrow(UserNotFoundException::new);
     }
 
     private static Optional<User> search(List<User> list, String login) {
         Optional<User> user = Optional.empty();
-        for (int i = 0; i < list.size(); i++) {
-                user = Optional.of(list.get(i));
+        for (User value : list) {
+            if (value.getLogin().equals(login)) {
+                user = Optional.of(value);
+            }
         }
         return user;
     }
-    */
 }
