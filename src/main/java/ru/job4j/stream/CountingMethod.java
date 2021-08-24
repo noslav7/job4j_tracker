@@ -5,7 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CountingMethod {
-
+/*
     public static class Company {
 
         private String name;
@@ -45,7 +45,7 @@ public class CountingMethod {
                 .collect(
                         Collectors.groupingBy(
                                 Function.identity(),
-                                Collectors.counting()
+                                Collectors.counting()));
                         )).forEach((k, v) -> k.getCompany(), ?);
-    }
+    }*/
 }

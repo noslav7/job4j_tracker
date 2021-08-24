@@ -1,7 +1,11 @@
 package ru.job4j.list;
+import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
 
 public class AlphabetTest {
-/*
+
     @Test
     public void reformat() {
         String rsl = Alphabet.reformat("javascript");
@@ -15,5 +19,4 @@ public class AlphabetTest {
         String expected = "aabccdeeeefgiinoprrrrsttuuwy";
         assertThat(rsl, is(expected));
     }
-*/
 }

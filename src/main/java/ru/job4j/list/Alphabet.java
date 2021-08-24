@@ -1,17 +1,20 @@
 package ru.job4j.list;
+import ru.job4j.comparator.NaturalOrder;
+
+import java.util.*;
 
 public class Alphabet {
-    /*
+
     public static String reformat(String s) {
-        int n = 1;
-        StringBuilder str = new StringBuilder(s);
-        int idx = str.length() - n;
-        while (idx > 0) {
-            str.insert(idx, " ");
-            idx = idx - n;
-        }
-        String newS = str.toString();
-        List<String> listOfChars = List.of(newS.split(" "));
-        return Arrays.sort(Comparator.naturalOrder(listOfChars));;
-    }*/
+        String[] splittedString = s.split("");
+        List<String> listOfStrings = new ArrayList<>(Arrays.asList(splittedString));
+        listOfStrings.sort(Comparator.naturalOrder());
+        StringBuilder sb = new StringBuilder();
+        sb.append(listOfStrings);
+        return sb.toString()
+                .replace("[", "")
+                .replace("]", "")
+                .replace(",", "")
+                .replace(" ", "");
+    }
 }
