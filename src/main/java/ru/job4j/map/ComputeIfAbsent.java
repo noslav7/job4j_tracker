@@ -2,13 +2,15 @@ package ru.job4j.map;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 public class ComputeIfAbsent {
-    /*
+
     public static Map<Integer, String> collectData(Map<Integer, String> names, List<User> users) {
+        Set<Integer> key = names.keySet();
         for (User user : users) {
-            names.computeIfAbsent(integ -> user.getId());
-            names.computeIfPresent(integ -> user.getId());
+            names.computeIfPresent(user.getId(), (id, name) -> user.getName());
+            names.computeIfAbsent(user.getId(), id -> user.getName());
         }
            return names;
         }
@@ -46,5 +48,5 @@ public class ComputeIfAbsent {
         public int hashCode() {
             return Objects.hash(name);
         }
-    }*/
+    }
 }

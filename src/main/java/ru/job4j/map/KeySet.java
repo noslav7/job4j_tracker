@@ -12,8 +12,8 @@ public class KeySet {
                         3, "host@host"
                 )
         );
-        for (int i = 1; i <= map.size(); i++) {
-            System.out.println(i + " - " + map.get(i));
+        for (int key : map.keySet()) {
+            System.out.println(key + " - " + map.get(key));
         }
     }
 }
