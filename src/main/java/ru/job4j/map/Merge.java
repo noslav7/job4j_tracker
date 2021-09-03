@@ -6,8 +6,12 @@ import java.util.Objects;
 public class Merge {
 
     public static Map<Integer, String> collectData(Map<Integer, String> names, List<User> users) {
-        return names;
-    }
+        for (User user : users) {
+            names.putIfAbsent(user.getId(), user.getName());
+            names.merge(user.getId(), user.getSurname(), (oldName, newName) -> oldName + " " + newName);
+        }
+            return names;
+        }
 
     public static class User {
         private int id;
