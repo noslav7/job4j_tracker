@@ -7,6 +7,12 @@ public class RemoveElements {
     public static Map<Integer, String> removeElement(Map<Integer, String> data,
                                                      List<Integer> ids,
                                                      List<User> users) {
+        for (Integer id : ids) {
+            data.remove(id);
+        }
+        for (User user : users) {
+            data.remove(user.getId(), user.getName());
+        }
         return data;
     }
 
