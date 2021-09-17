@@ -1,14 +1,11 @@
 package ru.job4j.comparator;
 
-
-import ru.job4j.tracker.Item;
-
 import java.util.Comparator;
 import java.util.Objects;
 
 public class ThenComparingMethod {
 /*
-    public static class User implements Comparator<User> {
+    public static class User implements Comparable<User> {
 
         private String name;
         private int age;
@@ -27,11 +24,6 @@ public class ThenComparingMethod {
         }
 
         @Override
-        public int compare(User o1, User o2) {
-            return 0;
-        }
-
-        @Override
         public boolean equals(Object o) {
             if (this == o) {
                 return true;
@@ -47,20 +39,22 @@ public class ThenComparingMethod {
         public int hashCode() {
             return Objects.hash(name, age);
         }
+    }
+
+    public static void main(String[] args) {
 
     }
 
     public static Comparator<User> thenComparing() {
-        return ;
+        return ascByName().thenComparing(descByAge());
     }
 
     public static Comparator<User> ascByName() {
-        return o1.getName().compareTo(o2.getName());
+        return Comparator.naturalOrder();
     }
 
-    public static Comparator<User> descByAge(User o1, User o2) {
-        Comparator<String>
-        return Integer.compare(o2.getAge(), o1.getAge());
-        }
+    public static Comparator<User> descByAge() {
+        return Comparator.reverseOrder();
     }*/
+
 }

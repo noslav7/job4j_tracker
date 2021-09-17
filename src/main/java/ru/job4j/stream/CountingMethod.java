@@ -45,7 +45,7 @@ public class CountingMethod {
                 .collect(
                         Collectors.groupingBy(
                                 Function.identity(),
-                                Collectors.counting()));
-                        )).forEach((k, v) -> k.getCompany(), ?);
+                                Collectors.counting()
+                        )).forEach((k, v) -> Collectors.toList() + " " + v);
     }*/
 }

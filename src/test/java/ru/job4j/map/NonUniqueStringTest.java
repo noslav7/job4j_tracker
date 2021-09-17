@@ -8,7 +8,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class NonUniqueStringTest {
-    /*
+
     @Test
     public void checkData() {
         String[] data = {"a", "b", "a", "c", "b"};
@@ -16,5 +16,4 @@ public class NonUniqueStringTest {
         Map<String, Boolean> expected = Map.of("a", true, "b", true, "c", false);
         assertThat(rsl, is(expected));
     }
-*/
 }
