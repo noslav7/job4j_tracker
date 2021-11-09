@@ -1,7 +1,15 @@
 package ru.job4j.stream;
 
+import org.junit.Test;
+
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.*;
+import static ru.job4j.stream.SummingMethod.*;
+
 public class SummingMethodTest {
-/*
+
     @Test
     public void test() {
         Bill b1 = new Bill(1);
@@ -19,5 +27,5 @@ public class SummingMethodTest {
                 "u3", 15
         );
         assertEquals(expect, SummingMethod.summing(List.of(u1, u2, u3)));
-    }*/
+    }
     }

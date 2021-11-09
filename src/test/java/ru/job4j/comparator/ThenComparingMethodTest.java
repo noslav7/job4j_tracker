@@ -1,12 +1,14 @@
 package ru.job4j.comparator;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class ThenComparingMethodTest {
-/*
+
     @Test
     public void test() {
         ThenComparingMethod.User user1 = new ThenComparingMethod.User("C", 10);
@@ -18,5 +20,5 @@ public class ThenComparingMethodTest {
         List<ThenComparingMethod.User> expect = Arrays.asList(user3, user5, user2, user4, user1);
         input.sort(ThenComparingMethod.thenComparing());
         assertEquals(expect, input);
-    } */
+    }
 }
