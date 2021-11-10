@@ -42,6 +42,7 @@ public class CountingMethod {
                         Collectors.groupingBy(
                                 Function.identity(Worker::getCompany, HashMap::new)
                                 Collectors.counting()),
-                                workersCompanyCounted.forEach((k, v) -> System.out.println(k + " " + v)));
+                                workersCompanyCounted
+                                .forEach((k, v) -> System.out.println(k + " " + v)));
     }*/
 }

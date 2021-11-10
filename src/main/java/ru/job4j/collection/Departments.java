@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Departments {
+
     public static List<String> fillGaps(List<String> deps) {
         Set<String> tmp = new LinkedHashSet<>();
         for (String value : deps) {
@@ -16,6 +17,7 @@ public class Departments {
         }
         return new ArrayList<>(tmp);
     }
+
     public static void sortAsc(List<String> orgs) {
     }
 

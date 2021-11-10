@@ -60,8 +60,8 @@ public class SummingMethod {
     public static Map<String, Integer> summing(List<User> users) {
         return users.stream()
                 .collect(Collectors
-                        .groupingBy
-                                (User::getName, Collectors.summingInt(u -> u.getBills().stream()
+                        .groupingBy(User::getName,
+                                Collectors.summingInt(u -> u.getBills().stream()
                                 .mapToInt(Bill::getBalance)
                                 .sum()))
                 );

@@ -49,7 +49,8 @@ public class ThenComparingMethod {
     }
 
     public static Comparator<User> thenComparing() {
-        return Comparator.comparing(User::getName).thenComparing(Comparator.comparing(User::getAge).reversed());
+        return Comparator.comparing(User::getName)
+                .thenComparing(Comparator.comparing(User::getAge).reversed());
     }
 
     public static Comparator<User> ascByName() {
