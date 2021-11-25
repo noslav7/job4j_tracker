@@ -30,5 +30,4 @@ public class WeatherTest {
         );
         assertThat(rsl, is(expected));
     }
-
 }

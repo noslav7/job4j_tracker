@@ -21,7 +21,7 @@ public class Concordance {
         for (int i = 0; i < uniqueArray.length; i++) {
             List<Integer> listOfIndexes = new ArrayList<>();
             for (int j = 0; j < myChars.size(); j++) {
-                if (uniqueArray[i] == s.charAt(j)) {
+                if (uniqueArray[i] == noSymbols.charAt(j)) {
                     listOfIndexes.add(j);
                 }
             }
