@@ -1,6 +1,9 @@
 package ru.job4j.map;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
 
 public class Weather {
     public static List<Info> editData(List<Info> list) {
@@ -17,12 +20,8 @@ public class Weather {
                 rsl.add(oneInfo);
             }
         }
+        rsl.sort(Comparator.comparing(Info::getRainfall));
         return rsl;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 
     public static class Info {
@@ -54,6 +53,11 @@ public class Weather {
             Info info = (Info) o;
             return rainfall == info.rainfall &&
                     Objects.equals(city, info.city);
+        }
+
+        @Override
+        public String toString() {
+            return this.city + " " + this.rainfall;
         }
 
         @Override
