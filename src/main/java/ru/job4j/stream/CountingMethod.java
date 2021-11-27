@@ -1,7 +1,11 @@
 package ru.job4j.stream;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class CountingMethod {
-/*
+
     public static class Company {
 
         private String name;
@@ -40,9 +44,7 @@ public class CountingMethod {
         return workers.stream()
                 .collect(
                         Collectors.groupingBy(
-                                Function.identity(Worker::getCompany, HashMap::new)
-                                Collectors.counting()),
-                                workersCompanyCounted
-                                .forEach((k, v) -> System.out.println(k + " " + v)));
-    }*/
+                                worker -> worker.getCompany().getName(),
+                                Collectors.counting()));
+    }
 }

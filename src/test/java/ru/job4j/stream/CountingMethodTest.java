@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 import static ru.job4j.stream.CountingMethod.*;
 
 public class CountingMethodTest {
-/*
+
     @Test
     public void test() {
         Company c1 = new Company("Apple");
@@ -28,5 +28,5 @@ public class CountingMethodTest {
                 "Microsoft", 3L
         );
         assertEquals(expect, CountingMethod.groupAndCount(List.of(w1, w2, w3, w4, w5, w6)));
-    }*/
+    }
 }
