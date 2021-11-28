@@ -9,12 +9,11 @@ public class Departments {
         for (String value : deps) {
             String start = "";
             for (String el : value.split("/")) {
-                 tmp.add(start + "/" + el);
+                start += "".equals(start) ? el : "/" + el;
+                tmp.add(start);
             }
         }
-        List<String> tmpList = new ArrayList<>(tmp);
-        sortDesc(tmpList);
-        return tmpList;
+        return new ArrayList<>(tmp);
     }
 
     public static void sortAsc(List<String> orgs) {
@@ -22,18 +21,6 @@ public class Departments {
     }
 
     public static void sortDesc(List<String> orgs) {
-        List<String> forSortAsc = new ArrayList<>();
-        List<String> forSortDesc = new ArrayList<>();
-        for (int i = 0; i < orgs.size() - 1; i++) {
-            if (orgs.get(i).length() > orgs.get(i + 1).length()) {
-                forSortDesc.add(orgs.get(i));
-            } else if (orgs.get(i).length() == orgs.get(i + 1).length()) {
-                forSortAsc.addAll(orgs.subList(i, orgs.size()));
-                break;
-            }
-        }
-        forSortDesc.sort(new DepDescComp());
-        sortAsc(forSortAsc);
-        forSortDesc.addAll(forSortAsc);
+        orgs.sort(new DepDescComp());
     }
 }
