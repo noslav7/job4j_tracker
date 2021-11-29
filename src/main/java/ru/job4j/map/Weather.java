@@ -1,7 +1,7 @@
 package ru.job4j.map;
 import java.util.*;
 
-public class Weather {
+public  class Weather {
     public static List<Info> editData(List<Info> list) {
         List<Info> rsl = new ArrayList<>();
         return rsl;
