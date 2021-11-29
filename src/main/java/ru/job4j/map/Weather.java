@@ -1,26 +1,9 @@
 package ru.job4j.map;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Weather {
     public static List<Info> editData(List<Info> list) {
         List<Info> rsl = new ArrayList<>();
-        for (Info i: list) {
-            int rain = 0;
-            for (Info j : list) {
-                if (i.city.equals(j.city)) {
-                    rain += j.rainfall;
-                }
-            }
-            Info oneInfo = new Info(i.city, rain);
-            if (!rsl.contains(oneInfo)) {
-                rsl.add(oneInfo);
-            }
-        }
-        rsl.sort(Comparator.comparing(Info::getRainfall));
         return rsl;
     }
 
@@ -53,11 +36,6 @@ public class Weather {
             Info info = (Info) o;
             return rainfall == info.rainfall
                     && Objects.equals(city, info.city);
-        }
-
-        @Override
-        public String toString() {
-            return this.city + " " + this.rainfall;
         }
 
         @Override
