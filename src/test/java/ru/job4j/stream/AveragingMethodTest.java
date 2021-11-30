@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 import static ru.job4j.stream.AveragingMethod.*;
 
 public class AveragingMethodTest {
-/*
+
     @Test
     public void test() {
         Company c1 = new Company("Apple");
@@ -27,5 +27,5 @@ public class AveragingMethodTest {
                 "Microsoft", 40D
         );
         assertEquals(expect, AveragingMethod.averaging(List.of(w1, w2, w3, w4, w5, w6)));
-    }*/
+    }
 }

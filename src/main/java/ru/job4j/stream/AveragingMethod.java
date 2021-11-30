@@ -1,5 +1,9 @@
 package ru.job4j.stream;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class AveragingMethod {
 
     public static class Company {
@@ -35,10 +39,11 @@ public class AveragingMethod {
             return company;
         }
     }
-/*
+
     public static Map<String, Double> averaging(List<Worker> workers) {
         return workers.stream()
-                .collect(Collectors.averagingDouble(
-                        (company, age) -> company., .getAge()));
-    }*/
+                .collect(Collectors.groupingBy(
+                        worker -> worker.getCompany().getName(),
+                        Collectors.averagingDouble(worker -> Double.parseDouble(worker.getAge()))));
+    }
 }
