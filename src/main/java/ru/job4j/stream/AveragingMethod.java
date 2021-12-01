@@ -44,6 +44,6 @@ public class AveragingMethod {
         return workers.stream()
                 .collect(Collectors.groupingBy(
                         worker -> worker.getCompany().getName(),
-                        Collectors.averagingDouble(worker -> Double.parseDouble(worker.getAge()))));
+                        Collectors.averagingDouble(worker -> Double.parseDouble(worker.getAge() + ""))));
     }
 }
