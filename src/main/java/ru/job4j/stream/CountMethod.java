@@ -1,9 +1,15 @@
 package ru.job4j.stream;
 
+import java.util.stream.Stream;
+
 public class CountMethod {
-    /*
+
     public static long count(Stream<Integer> data) {
-        return List.of(data.).stream()
-                .count();
-    }*/
+        return data.count();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
