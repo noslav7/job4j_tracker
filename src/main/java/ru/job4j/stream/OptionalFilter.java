@@ -1,11 +1,7 @@
 package ru.job4j.stream;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class OptionalFilter {
-
+/*
     public static class Worker {
 
         private String passport;
@@ -54,5 +50,5 @@ public class OptionalFilter {
         return workers.stream()
                 .filter(w -> w.getPassport().equals(passport))
                 .findFirst();
-    }
+    }*/
 }

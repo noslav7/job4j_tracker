@@ -1,16 +1,11 @@
 package ru.job4j.stream;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public class Analyze {
 /*
     public static double averageScore(Stream<Pupil> stream) {
         return  Stream.of()
                 .flatMap(x -> x.getSubjects()
-                        .stream());
+                        .stream())
                 .mapToInt(s -> stream.map(sub -> ))
                 .average()
                 .orElse(0D);

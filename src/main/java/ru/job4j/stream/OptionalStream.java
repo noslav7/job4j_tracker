@@ -1,4 +1,5 @@
 package ru.job4j.stream;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,9 +45,8 @@ public class OptionalStream {
                 .map(User::getNumbers)
                 .flatMap(sublist -> sublist.stream())
                 .distinct()
-                .map(o -> o.getPhone())
-                .filter(p -> p.startsWith(region))
-                .map(x -> new PhoneNumber(x)))
+                .map(o -> new PhoneNumber(o.getPhone()))
+                .filter(p -> p.getPhone().startsWith(region))
                 .collect(Collectors.toList());
     }
 }
