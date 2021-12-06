@@ -1,15 +1,11 @@
 package ru.job4j.stream;
-
 import org.junit.Test;
-
 import java.util.List;
 import java.util.Map;
-
 import static org.junit.Assert.*;
 import static ru.job4j.stream.CountingMethod.*;
 
 public class CountingMethodTest {
-
     @Test
     public void test() {
         Company c1 = new Company("Apple");

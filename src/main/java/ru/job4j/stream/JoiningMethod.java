@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 
 public class JoiningMethod {
     public static String join(List<String> strings) {
-        return "Prefix" + strings.stream().collect(Collectors.joining(System.lineSeparator())) + "Suffix";
+        return "Prefix" + strings.stream().collect(Collectors
+                .joining(System.lineSeparator())) + "Suffix";
     }
 }
