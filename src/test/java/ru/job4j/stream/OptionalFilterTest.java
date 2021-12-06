@@ -1,7 +1,13 @@
 package ru.job4j.stream;
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.*;
+import static ru.job4j.stream.OptionalFilter.*;
 
 public class OptionalFilterTest {
-/*
+
     @Test
     public void notExistAndNeedChild() {
         Child c1 = new Child("c1", 15);
@@ -34,5 +40,4 @@ public class OptionalFilterTest {
         Worker worker2 = new Worker("456", List.of(c4));
         assertEquals(2, OptionalFilter.defineChildren(List.of(worker1, worker2), "123").size());
     }
-*/
 }

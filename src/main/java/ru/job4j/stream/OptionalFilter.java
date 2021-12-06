@@ -1,7 +1,11 @@
 package ru.job4j.stream;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class OptionalFilter {
-/*
+
     public static class Worker {
 
         private String passport;
@@ -43,12 +47,16 @@ public class OptionalFilter {
     }
 
     public static List<Child> defineChildren(List<Worker> workers, String passport) {
-        // your code here
+        return findByPassport(workers, passport)
+                .filter(worker -> worker.getChildren().size() > 2).stream()
+                .flatMap(worker -> worker.getChildren().stream())
+                .filter(child -> child.getAge() < 15)
+                .collect(Collectors.toList());
     }
 
     public static Optional<Worker> findByPassport(List<Worker> workers, String passport) {
         return workers.stream()
                 .filter(w -> w.getPassport().equals(passport))
                 .findFirst();
-    }*/
+    }
 }
