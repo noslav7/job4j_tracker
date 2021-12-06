@@ -9,6 +9,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class AnalyzeTest {
+
     @Ignore
     @Test
     public void whenSinglePupil() {

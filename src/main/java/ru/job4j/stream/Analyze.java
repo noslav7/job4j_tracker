@@ -1,4 +1,5 @@
 package ru.job4j.stream;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class Analyze {
 
     public static Tuple bestStudent(Stream<Pupil> stream) {
         return averageScoreBySubject(stream).stream()
-                .map(pupil -> new Pupil(puil.getName(), averageScore(stream)))
+                .map(pupil -> new Pupil(pupil.getName(), averageScore(stream)))
                 .sum()
                 .max(Comparator.comparing())
                 .orElse();
