@@ -1,7 +1,11 @@
 package ru.job4j.stream;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+import org.junit.Test;
+import java.util.List;
 
 public class AnalyzeTest {
-/*
+
     @Test
     public void whenSinglePupil() {
         double average = Analyze.averageScore(
@@ -79,5 +83,5 @@ public class AnalyzeTest {
                 ).stream()
         );
         assertThat(best, is(new Tuple("Math", 160D)));
-    }*/
+    }
 }
