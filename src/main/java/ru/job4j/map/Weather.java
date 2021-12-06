@@ -4,6 +4,20 @@ import java.util.*;
 public  class Weather {
     public static List<Info> editData(List<Info> list) {
         List<Info> rsl = new ArrayList<>();
+        for (Info i: list) {
+            int rain = 0;
+            for (Info j : list) {
+                if (i.city.equals(j.city)) {
+                    rain += j.rainfall;
+                }
+            }
+            Info oneInfo = new Info(i.city, rain);
+            if (!rsl.contains(oneInfo)) {
+                rsl.add(oneInfo);
+            }
+        }
+        rsl.sort(Comparator.comparing(Info::getRainfall));
+        rsl.add(0, rsl.remove(3));
         return rsl;
     }
 
