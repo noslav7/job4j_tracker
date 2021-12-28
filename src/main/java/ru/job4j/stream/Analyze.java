@@ -24,9 +24,8 @@ public class Analyze {
 
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         Map<String, Double> map = stream
-                .flatMap(x -> x.getSubjects())
-                .stream()
-                .collect(Collectors.groupingBy(x.getName(), Collectors.averagingDouble(subj -> Double.parseDouble(sc))));
+                .flatMap(pupil -> pupil.getSubjects().stream())
+                .collect(Collectors.groupingBy(Subject::getName, Collectors.averagingDouble(subj -> Double.parseDouble(subj.getScore() + ""))));
         return map.entrySet()
                 .stream()
                 .map(x -> new Tuple(x.getKey(), x.getValue()))
