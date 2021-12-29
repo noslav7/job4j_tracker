@@ -10,7 +10,6 @@ import static org.junit.Assert.assertThat;
 
 public class AnalyzeTest {
 
-    @Ignore
     @Test
     public void whenSinglePupil() {
         double average = Analyze.averageScore(
@@ -21,7 +20,6 @@ public class AnalyzeTest {
         assertThat(average, is(100D));
     }
 
-    @Ignore
     @Test
     public void whenPupilAverage() {
         double average = Analyze.averageScore(
@@ -33,7 +31,6 @@ public class AnalyzeTest {
         assertThat(average, is(80D));
     }
 
-    @Ignore
     @Test
     public void whenListOfPupilAverage() {
         List<Tuple> average = Analyze.averageScoreBySubject(
@@ -50,7 +47,6 @@ public class AnalyzeTest {
         )));
     }
 
-    @Ignore
     @Test
     public void whenListOfSubjectAverage() {
         List<Tuple> average = Analyze.averageScoreByPupil(
@@ -67,7 +63,6 @@ public class AnalyzeTest {
         )));
     }
 
-    @Ignore
     @Test
     public void whenBestPupil() {
         Tuple best = Analyze.bestStudent(
@@ -81,7 +76,6 @@ public class AnalyzeTest {
         assertThat(best, is(new Tuple("Ivanov", 200D)));
     }
 
-    @Ignore
     @Test
     public void whenBestSubject() {
         Tuple best = Analyze.bestSubject(

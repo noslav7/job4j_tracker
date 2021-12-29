@@ -12,10 +12,10 @@ public class Pupil {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public List<Subject> getSubjects() {
-        return subjects;
+        return this.subjects;
     }
 }
