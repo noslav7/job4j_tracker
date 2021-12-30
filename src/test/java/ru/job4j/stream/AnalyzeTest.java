@@ -10,7 +10,6 @@ import static org.junit.Assert.assertThat;
 
 public class AnalyzeTest {
 
-
     @Test
     public void whenSinglePupil() {
         double average = Analyze.averageScore(
@@ -20,7 +19,6 @@ public class AnalyzeTest {
         );
         assertThat(average, is(100D));
     }
-
   /*
     @Test
     public void whenPupilAverage() {
