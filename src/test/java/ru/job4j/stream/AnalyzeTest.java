@@ -30,7 +30,6 @@ public class AnalyzeTest {
         assertThat(average, is(80D));
     }
 
-
     @Test
     public void whenListOfPupilAverage() {
         List<Tuple> average = Analyze.averageScoreBySubject(
