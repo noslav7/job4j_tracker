@@ -1,6 +1,5 @@
 package ru.job4j.stream;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class AnalyzeTest {
         );
         assertThat(average, is(100D));
     }
-  /*
+
     @Test
     public void whenPupilAverage() {
         double average = Analyze.averageScore(
@@ -48,7 +47,7 @@ public class AnalyzeTest {
         )));
     }
 
-
+/*
     @Test
     public void whenListOfSubjectAverage() {
         List<Tuple> average = Analyze.averageScoreByPupil(

@@ -1,8 +1,6 @@
 package ru.job4j.stream;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,13 +13,16 @@ public class Analyze {
                 .average()
                 .orElse(0D);
     }
-/*
+
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
         return stream
-                .map(s -> new Tuple(s.getName(), averageScore(stream)))
-                .collect(Collectors.toList());
+                .map(s -> new Tuple(s.getName(), stream
+                        .flatMap(score -> score.getSubjects())
+                                .mapToDouble(Subject::getScore)
+                                .average())
+                .collect(Collectors.toList()));
     }
-
+/*
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         Map<String, Double> map = stream
                 .flatMap(pupil -> pupil.getSubjects().stream())
