@@ -15,7 +15,7 @@ public class Analyze {
                 .average()
                 .orElse(0D);
     }
-
+/*
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
         return stream
                 .map(s -> new Tuple(s.getName(), averageScore(stream)))
@@ -49,5 +49,5 @@ public class Analyze {
                         Collectors.summingDouble(score -> (double) score)))
                 .max(Comparator.comparingDouble(score -> (double) score))
                 .orElse();
-    }
+    }*/
 }
