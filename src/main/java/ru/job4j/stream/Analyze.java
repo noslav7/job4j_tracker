@@ -1,6 +1,7 @@
 package ru.job4j.stream;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,14 +17,14 @@ public class Analyze {
 
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
         return stream
-                .map(s -> new Tuple(s.getName(), stream
-                        .flatMap(score -> score.getSubjects().stream())
+                .map(s -> new Tuple(s.getName(), s.getSubjects()
+                                .stream()
                                 .mapToInt(Subject::getScore)
                                 .average()
-                                .orElse(0D)
-                                .collect(Collectors.toList())));
+                                .orElse(0D))
+                                ).collect(Collectors.toList());
     }
-/*
+
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         Map<String, Double> map = stream
                 .flatMap(pupil -> pupil.getSubjects().stream())
@@ -35,7 +36,7 @@ public class Analyze {
                 .map(x -> new Tuple(x.getKey(), x.getValue()))
                 .collect(Collectors.toList());
     }
-
+/*
     public static Tuple bestStudent(Stream<Pupil> stream) {
         return stream
                 .flatMap(pupil -> pupil.getSubjects().stream())

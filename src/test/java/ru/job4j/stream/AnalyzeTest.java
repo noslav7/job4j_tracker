@@ -46,7 +46,6 @@ public class AnalyzeTest {
         )));
     }
 
-/*
     @Test
     public void whenListOfSubjectAverage() {
         List<Tuple> average = Analyze.averageScoreByPupil(
@@ -62,8 +61,7 @@ public class AnalyzeTest {
                 new Tuple("Lang", 80D)
         )));
     }
-
-
+/*
     @Test
     public void whenBestPupil() {
         Tuple best = Analyze.bestStudent(
