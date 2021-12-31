@@ -61,7 +61,7 @@ public class AnalyzeTest {
                 new Tuple("Lang", 80D)
         )));
     }
-/*
+
     @Test
     public void whenBestPupil() {
         Tuple best = Analyze.bestStudent(
@@ -74,8 +74,7 @@ public class AnalyzeTest {
         );
         assertThat(best, is(new Tuple("Ivanov", 200D)));
     }
-
-
+/*
     @Test
     public void whenBestSubject() {
         Tuple best = Analyze.bestSubject(
