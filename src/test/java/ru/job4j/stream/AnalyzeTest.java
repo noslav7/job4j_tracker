@@ -74,7 +74,7 @@ public class AnalyzeTest {
         );
         assertThat(best, is(new Tuple("Ivanov", 200D)));
     }
-/*
+
     @Test
     public void whenBestSubject() {
         Tuple best = Analyze.bestSubject(
@@ -86,5 +86,5 @@ public class AnalyzeTest {
                 ).stream()
         );
         assertThat(best, is(new Tuple("Math", 160D)));
-    }*/
+    }
 }

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Tuple {
     private String name;
-    private double score;
+    private static double score;
 
     public Tuple(String name, double score) {
         this.name = name;
@@ -27,5 +27,9 @@ public class Tuple {
     @Override
     public int hashCode() {
         return Objects.hash(name, score);
+    }
+
+    public static <U extends Comparable<? super U>, T> double getScore(T t) {
+        return Tuple.score;
     }
 }
