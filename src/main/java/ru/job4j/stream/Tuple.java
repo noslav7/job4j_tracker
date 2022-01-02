@@ -3,7 +3,7 @@ package ru.job4j.stream;
 import java.util.Objects;
 
 public class Tuple {
-    private static double score;
+    private double score;
     private String name;
 
     public Tuple(String name, double score) {
@@ -29,7 +29,7 @@ public class Tuple {
         return Objects.hash(name, score);
     }
 
-    public static <U extends Comparable<? super U>, T> double getScore(T t) {
-        return Tuple.score;
+    public double getScore() {
+        return score;
     }
 }
