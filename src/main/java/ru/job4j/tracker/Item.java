@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class Item {
 
-
     private static final DateTimeFormatter FORMATTER =
             DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     private int id;
@@ -51,7 +50,6 @@ public class Item {
     public LocalDateTime getCreated() {
         return created;
     }
-
     public void setCreated(LocalDateTime created) {
         this.created = created;
     }
