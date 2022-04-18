@@ -45,6 +45,8 @@ public class  StartUI {
                 new ShowAction(output),
                 new FindNameAction(output)
         );
-        new StartUI(output).init(input, tracker, actions);
+        try (Store tracker = new SqlTracker()) {
+            new StartUI(output).init(input, tracker, actions);
+        }
     }
 }
