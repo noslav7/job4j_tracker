@@ -33,10 +33,10 @@ public class  StartUI {
     }
 
     public static void main(String[]args) {
-        Input input = new ValidateInput(
+        Output output = new ConsoleOutput();
+        Input input = new ValidateInput(output,
                 new ConsoleInput()
         );
-        Output output = new ConsoleOutput();
         try (SqlTracker tracker = new SqlTracker()) {
             tracker.init();
             List<UserAction> actions = List.of(
