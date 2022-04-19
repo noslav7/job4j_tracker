@@ -12,8 +12,8 @@ public class ShowActionTest {
     @Test
     public void execute() {
         Output output = new StubOutput();
-        MemTracker memTracker = new MemTracker();
-        Item item = memTracker.add(new Item("New Item"));
+        Store store = new SqlTracker();
+        Item item = store.add(new Item("New Item"));
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
@@ -23,7 +23,7 @@ public class ShowActionTest {
                 new Exit(output)
         };
         String ln = System.lineSeparator();
-        new StartUI(output).init(in, memTracker, Arrays.asList(actions));
+        new StartUI(output).init(in, store, Arrays.asList(actions));
         assertThat(output.toString(), is(
                 "Menu:" + ln
                 + "0. Show all Items" + ln
