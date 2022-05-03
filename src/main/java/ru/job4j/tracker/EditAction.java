@@ -1,18 +1,16 @@
 package ru.job4j.tracker;
 
-public class EditAction implements UserAction {
+public class EditAction {
     private final Output out;
 
     public EditAction(Output out) {
         this.out = out;
     }
 
-    @Override
     public String name() {
         return "Edit item";
     }
 
-    @Override
     public boolean execute(Input input, MemTracker memTracker) {
         out.println("=== Edit item ====");
         int id = input.askInt("Enter Id: ");
