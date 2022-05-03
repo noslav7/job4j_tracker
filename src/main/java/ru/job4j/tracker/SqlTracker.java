@@ -1,13 +1,7 @@
 package ru.job4j.tracker;
 
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.List;
-import java.util.Properties;
-
-public class SqlTracker implements Store, AutoCloseable {
-
+public class SqlTracker {
+/*
     private Connection cn;
 
     public void init() {
@@ -35,12 +29,16 @@ public class SqlTracker implements Store, AutoCloseable {
 
     @Override
     public Item add(Item item) {
-        return null;
+        return new Item();
     }
 
     @Override
     public boolean replace(int id, Item item) {
-        return false;
+        boolean replace = false;
+        if (id < 0 || id > ) {
+            replace = true;
+        }
+        return replace;
     }
 
     @Override
@@ -61,5 +59,5 @@ public class SqlTracker implements Store, AutoCloseable {
     @Override
     public Item findById(int id) {
         return null;
-    }
+    }*/
 }
