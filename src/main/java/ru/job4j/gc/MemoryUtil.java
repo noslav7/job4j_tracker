@@ -26,8 +26,8 @@ public class MemoryUtil {
 
         public MemRegion(String name, boolean heap) {
             this.heap = heap;
-            normName = name.length() < NORM_NAME_LENGTH ? name.concat(SPACES.substring
-                    (0, NORM_NAME_LENGTH - name.length())) : name;
+            normName = name.length() < NORM_NAME_LENGTH ? name.concat(SPACES.substring(
+                    0, NORM_NAME_LENGTH - name.length())) : name;
         }
 
         public boolean isHeap() {
@@ -43,7 +43,7 @@ public class MemoryUtil {
         // Запоминаем информацию обо всех регионах памяти
         memRegions = new HashMap<String, MemRegion>(ManagementFactory.
                 getMemoryPoolMXBeans().size());
-        for(MemoryPoolMXBean mBean: ManagementFactory.getMemoryPoolMXBeans()) {
+        for (MemoryPoolMXBean mBean: ManagementFactory.getMemoryPoolMXBeans()) {
             memRegions.put(mBean.getName(), new MemRegion(mBean.getName(),
                     mBean.getType() == MemoryType.HEAP));
         }
