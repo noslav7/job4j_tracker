@@ -19,10 +19,10 @@ public class MemoryUtil {
     private static final String SPACES = "                    ";
     private static Map<String, MemRegion> memRegions;
 
-    // Вспомогательный класс для хранения информации о регионах памяти
+    /* Вспомогательный класс для хранения информации о регионах памяти*/
     private static class MemRegion {
-        private boolean heap;        // Признак того, что это регион кучи
-        private String normName;    // Имя, доведенное пробелами до универсальной длины
+        private boolean heap;        /* Признак того, что это регион кучи*/
+        private String normName;    /* Имя, доведенное пробелами до универсальной длины*/
 
         public MemRegion(String name, boolean heap) {
             this.heap = heap;
@@ -40,7 +40,7 @@ public class MemoryUtil {
     }
 
     static {
-        // Запоминаем информацию обо всех регионах памяти
+        /* Запоминаем информацию обо всех регионах памяти*/
         memRegions = new HashMap<String, MemRegion>(ManagementFactory.
                 getMemoryPoolMXBeans().size());
         for (MemoryPoolMXBean mBean: ManagementFactory.getMemoryPoolMXBeans()) {
@@ -49,7 +49,7 @@ public class MemoryUtil {
         }
     }
 
-    // Обработчик сообщений о сборке мусора
+    /* Обработчик сообщений о сборке мусора*/
     private static NotificationListener gcHandler = new NotificationListener() {
         @Override
         public void handleNotification(Notification notification, Object handback) {
