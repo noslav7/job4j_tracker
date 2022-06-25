@@ -3,8 +3,17 @@ package ru.job4j.tracker;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemTracker {
-    private final List<Item> items = new ArrayList<>();
+public class MemTracker extends Item implements UserAction {
+    private static final List<Item> items = new ArrayList<>();
+
+    public static void main(String[] args) {
+        UserAction user1 = new MemTracker();
+        UserAction user2 = new MemTracker();
+        items.add((Item) user1);
+        items.add((Item) user2);
+        items.remove(1);
+        Item item = items.get(0);
+    }
 
     public Item add(Item item) {
         items.add(item);
@@ -58,5 +67,15 @@ public class MemTracker {
             items.remove(index);
         }
         return result;
+    }
+
+    @Override
+    public String name() {
+        return null;
+    }
+
+    @Override
+    public boolean execute(Input input, Store tracker) {
+        return false;
     }
 }
