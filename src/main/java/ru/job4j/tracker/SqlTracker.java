@@ -10,7 +10,7 @@ import java.util.Properties;
 public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
     private List<Item> items = new ArrayList<>();
-    private int id = 1;
+    private int ids = 1;
 
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader()
@@ -38,7 +38,7 @@ public class SqlTracker implements Store, AutoCloseable {
     @Override
     public Item add(Item item) {
         items.add(item);
-        item.setId(id++);
+        item.setId(ids++);
         return item;
     }
 
