@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
-    List<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader()

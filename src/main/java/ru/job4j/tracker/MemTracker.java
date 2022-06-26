@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemTracker implements Store {
-    private static final List<Item> items = new ArrayList<>();
+    private static List<Item> items = new ArrayList<>();
 
     public static void main(String[] args) {
         Store user1 = new MemTracker();
