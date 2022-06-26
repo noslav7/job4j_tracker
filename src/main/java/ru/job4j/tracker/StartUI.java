@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
-public class  StartUI {
-/*
+import java.util.List;
+
+public class StartUI {
+
   private final Output out;
 
     public StartUI(Output out) {
@@ -34,7 +36,7 @@ public class  StartUI {
         Input input = new ValidateInput(output,
                 new ConsoleInput()
         );
-        try (SqlTracker tracker = new SqlTracker()) {
+      /*  try (SqlTracker tracker = new SqlTracker()) {
             tracker.init();
             List<UserAction> actions = List.of(
                     new CreateAction(output),
@@ -48,6 +50,6 @@ public class  StartUI {
             new StartUI(output).init(input, tracker, actions);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }*/
+        }*/
+    }
 }

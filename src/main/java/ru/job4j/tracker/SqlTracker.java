@@ -1,8 +1,15 @@
 package ru.job4j.tracker;
 
-public class SqlTracker {
-/*
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
+    List<Item> items = new ArrayList<>();
 
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader()
@@ -29,13 +36,15 @@ public class SqlTracker {
 
     @Override
     public Item add(Item item) {
-        return new Item();
+        items.add(item);
+        return item;
     }
 
     @Override
     public boolean replace(int id, Item item) {
         boolean replace = false;
-        if (id < 0 || id > ) {
+        if (id > -1 && id <  items.size()) {
+            items.set(id, item);
             replace = true;
         }
         return replace;
@@ -43,7 +52,12 @@ public class SqlTracker {
 
     @Override
     public boolean delete(int id) {
-        return false;
+        boolean deleted = false;
+        if (id > -1 && id <  items.size()) {
+            items.remove(id);
+            deleted = true;
+        }
+        return deleted;
     }
 
     @Override
@@ -53,11 +67,23 @@ public class SqlTracker {
 
     @Override
     public List<Item> findByName(String key) {
-        return null;
+        List<Item> findings = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                findings.add(item);
+            }
+        }
+        return findings;
     }
 
     @Override
     public Item findById(int id) {
-        return null;
-    }*/
+        Item foundItem = null;
+        for (Item item : items) {
+            if (item.getId() == id) {
+               foundItem = item;
+            }
+        }
+        return foundItem;
+    }
 }

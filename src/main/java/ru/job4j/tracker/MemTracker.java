@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemTracker extends Item implements UserAction {
+public class MemTracker extends Item implements Store, UserAction {
     private static final List<Item> items = new ArrayList<>();
 
     public static void main(String[] args) {
