@@ -70,9 +70,9 @@ public class SqlTracker implements Store, AutoCloseable {
     @Override
     public List<Item> findByName(String key) {
         List<Item> findings = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getName().equals(key)) {
-                findings.add(item);
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equals(key)) {
+                findings.add(items.get(i));
             }
         }
         return findings;
