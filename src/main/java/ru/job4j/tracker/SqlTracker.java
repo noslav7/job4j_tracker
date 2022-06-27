@@ -11,7 +11,6 @@ public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
     private List<Item> items = new ArrayList<>();
 
-
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader()
                 .getResourceAsStream("app.properties")) {

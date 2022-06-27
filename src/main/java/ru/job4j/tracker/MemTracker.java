@@ -6,6 +6,7 @@ import java.util.List;
 public class MemTracker implements Store {
     private static List<Item> items = new ArrayList<>();
     private int ids = 1;
+
     public static void main(String[] args) {
         Store user1 = new MemTracker();
         Store user2 = new MemTracker();
