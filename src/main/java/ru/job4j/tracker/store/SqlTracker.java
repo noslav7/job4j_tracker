@@ -1,15 +1,23 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.store;
+
+import ru.job4j.tracker.Store;
+import ru.job4j.tracker.model.Item;
 
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
 
 public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
     private List<Item> items = new ArrayList<>();
+
+    public SqlTracker(Connection connection) {
+        this.cn = connection;
+    }
 
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader()
@@ -62,7 +70,7 @@ public class SqlTracker implements Store, AutoCloseable {
 
     @Override
     public List<Item> findAll() {
-        return new ArrayList<>(items);
+        return items;
     }
 
     @Override
@@ -85,5 +93,22 @@ public class SqlTracker implements Store, AutoCloseable {
             }
         }
         return foundItem;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SqlTracker that = (SqlTracker) o;
+        return Objects.equals(cn, that.cn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cn);
     }
 }
