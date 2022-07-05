@@ -2,16 +2,16 @@ package ru.job4j.tracker;
 
 import ru.job4j.tracker.model.Item;
 
-public class CreateAction implements UserAction {
-    private final Output out;
+import static java.lang.System.out;
 
-    public CreateAction(Output out) {
-        this.out = out;
+public class ExitAction implements UserAction {
+
+    public ExitAction() {
     }
 
     @Override
     public String name() {
-        return "Create";
+        return "Exit";
     }
 
     @Override
@@ -23,4 +23,3 @@ public class CreateAction implements UserAction {
         return true;
     }
 }
-

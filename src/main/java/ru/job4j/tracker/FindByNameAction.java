@@ -2,16 +2,16 @@ package ru.job4j.tracker;
 
 import ru.job4j.tracker.model.Item;
 
-public class CreateAction implements UserAction {
+public class FindByNameAction implements UserAction {
     private final Output out;
 
-    public CreateAction(Output out) {
+    public FindByNameAction(Output out) {
         this.out = out;
     }
 
     @Override
     public String name() {
-        return "Create";
+        return "FindByName";
     }
 
     @Override
@@ -23,4 +23,3 @@ public class CreateAction implements UserAction {
         return true;
     }
 }
-

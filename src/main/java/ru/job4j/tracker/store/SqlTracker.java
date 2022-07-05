@@ -1,8 +1,6 @@
 package ru.job4j.tracker.store;
 
 import ru.job4j.tracker.Store;
-import ru.job4j.tracker.model.Item;
-
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,13 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
-
+import ru.job4j.tracker.model.Item;
 public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
     private List<Item> items = new ArrayList<>();
 
     public SqlTracker(Connection connection) {
         this.cn = connection;
+    }
+
+    public SqlTracker() {
     }
 
     public void init() {
@@ -70,7 +71,7 @@ public class SqlTracker implements Store, AutoCloseable {
 
     @Override
     public List<Item> findAll() {
-        return items;
+        return new ArrayList<>(items);
     }
 
     @Override
@@ -110,5 +111,9 @@ public class SqlTracker implements Store, AutoCloseable {
     @Override
     public int hashCode() {
         return Objects.hash(cn);
+    }
+
+    public List<Item> getItems() {
+        return items;
     }
 }

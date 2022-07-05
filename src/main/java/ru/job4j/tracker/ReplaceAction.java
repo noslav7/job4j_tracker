@@ -2,25 +2,25 @@ package ru.job4j.tracker;
 
 import ru.job4j.tracker.model.Item;
 
-public class CreateAction implements UserAction {
+public class ReplaceAction implements UserAction {
     private final Output out;
 
-    public CreateAction(Output out) {
+    public ReplaceAction(Output out) {
         this.out = out;
     }
 
     @Override
     public String name() {
-        return "Create";
+        return "Replace";
     }
 
     @Override
     public boolean execute(Input input, Store store) {
-        out.println("=== Create a new item ====");
+        out.println("=== Replace item ====");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        store.add(item);
+        int cellNumber = input.askInt("Enter cell number to replace: ");
+        store.replace(cellNumber, item);
         return true;
     }
 }
-

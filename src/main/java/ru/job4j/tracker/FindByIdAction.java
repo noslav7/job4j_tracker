@@ -2,10 +2,10 @@ package ru.job4j.tracker;
 
 import ru.job4j.tracker.model.Item;
 
-public class CreateAction implements UserAction {
+public class FindByIdAction implements UserAction {
     private final Output out;
 
-    public CreateAction(Output out) {
+    public FindByIdAction(Output out) {
         this.out = out;
     }
 
@@ -23,4 +23,3 @@ public class CreateAction implements UserAction {
         return true;
     }
 }
-
