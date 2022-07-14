@@ -1,6 +1,6 @@
 package ru.job4j.map;
 
-public class  Label {
+public class Label {
     private String name;
     private double score;
 

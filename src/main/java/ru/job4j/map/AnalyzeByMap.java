@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class  AnalyzeByMap {
+public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
         List<Subject> allPupilsSubjects = pupils.stream()
                 .map(Pupil::getSubjects)
@@ -18,24 +18,28 @@ public class  AnalyzeByMap {
     }
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
-  /*      List<Subject> allPupilsSubjects = pupils.stream()
+        List<Subject> allPupilsSubjects = pupils.stream()
                 .map(Pupil::getSubjects)
                 .flatMap(Collection::stream)
                 .toList();
         List<Subject> distinctSubjects = allPupilsSubjects.stream()
                 .distinct()
                 .toList();
-        List<Subject> secondDistinctList = new ArrayList<>();
-        secondDistinctList.stream()
-                .forEach(subject -> subject.setScore(0));
-        for (int i = 0; i < allPupilsSubjects.size(); i++) {
-            for (int j = 0; j < distinctSubjects.size(); j++) {
-                if (allPupilsSubjects.get(i).equals(distinctSubjects.get(j))) {
-                secondDistinctList.get(j).score += allPupilsSubjects.get(i).score;
+        List<Label> labels = new ArrayList<>();
+        double quantityScores = 0;
+        double scoresSum = 0;
+        for (int i = 0; i < distinctSubjects.size(); i++) {
+            for (int j = 0; j < allPupilsSubjects.size(); j++) {
+                if (distinctSubjects.get(i).equals(allPupilsSubjects.get(j))) {
+                    scoresSum += allPupilsSubjects.get(j).getScore();
+                    quantityScores++;
                 }
             }
-        }*/
-        return List.of();
+        labels.add(new Label(distinctSubjects.get(i).getName(), scoresSum / quantityScores));
+            scoresSum = 0;
+            quantityScores = 0;
+        }
+        return labels;
     }
 
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
