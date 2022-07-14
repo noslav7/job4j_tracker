@@ -3,9 +3,9 @@ package ru.job4j.map;
 import java.util.Objects;
 
 public class  Subject {
-    private String name;
+    String name;
 
-    private int score;
+    int score;
 
     public Subject(String name, int score) {
         this.name = name;
@@ -35,5 +35,13 @@ public class  Subject {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
