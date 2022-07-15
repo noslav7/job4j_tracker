@@ -29,7 +29,7 @@ public class AnalyzeByMapTest {
 
     @Test
     public void whenListOfPupilAverage() {
-        List<Label> average = AnalyzeByMap.averageScoreBySubject(
+        List<Label> average = AnalyzeByMap.averageScoreByPupil(
                 List.of(
                         new Pupil("Ivanov", List.of(new Subject("Math", 100),
                                 new Subject("Lang", 100))),
@@ -45,7 +45,7 @@ public class AnalyzeByMapTest {
 
     @Test
     public void whenListOfSubjectAverage() {
-        List<Label> average = AnalyzeByMap.averageScoreByPupil(
+        List<Label> average = AnalyzeByMap.averageScoreBySubject(
                 List.of(
                         new Pupil("Ivanov",
                                 List.of(

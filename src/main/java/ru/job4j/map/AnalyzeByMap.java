@@ -26,18 +26,16 @@ public class AnalyzeByMap {
                 .distinct()
                 .toList();
         List<Label> labels = new ArrayList<>();
-        double quantityScores = 0;
-        double scoresSum = 0;
         for (int i = 0; i < distinctSubjects.size(); i++) {
+            double quantityScores = 0;
+            double scoresSum = 0;
             for (int j = 0; j < allPupilsSubjects.size(); j++) {
-                if (distinctSubjects.get(i).equals(allPupilsSubjects.get(j))) {
+                if (distinctSubjects.get(i).getName().equals(allPupilsSubjects.get(j).getName())) {
                     scoresSum += allPupilsSubjects.get(j).getScore();
                     quantityScores++;
                 }
             }
         labels.add(new Label(distinctSubjects.get(i).getName(), scoresSum / quantityScores));
-            scoresSum = 0;
-            quantityScores = 0;
         }
         return labels;
     }
