@@ -22,20 +22,23 @@ public class AnalyzeByMap {
                 .map(Pupil::getSubjects)
                 .flatMap(Collection::stream)
                 .toList();
-        List<Subject> distinctSubjects = allPupilsSubjects.stream()
+        List<String> distinctSubjects = allPupilsSubjects.stream()
+                .map(Subject::getName)
                 .distinct()
                 .toList();
         List<Label> labels = new ArrayList<>();
         for (int i = 0; i < distinctSubjects.size(); i++) {
-            double quantityScores = 0;
-            double scoresSum = 0;
+            String name = "";
+            double quantityScores = 0D;
+            double scoresSum = 0D;
             for (int j = 0; j < allPupilsSubjects.size(); j++) {
-                if (distinctSubjects.get(i).getName().equals(allPupilsSubjects.get(j).getName())) {
-                    scoresSum += allPupilsSubjects.get(j).getScore();
+                if (distinctSubjects.get(i).equals(allPupilsSubjects.get(j).getName())) {
+                    name = allPupilsSubjects.get(j).getName();
+                    scoresSum += (double) allPupilsSubjects.get(j).getScore();
                     quantityScores++;
                 }
             }
-        labels.add(new Label(distinctSubjects.get(i).getName(), scoresSum / quantityScores));
+        labels.add(new Label(name, (double) scoresSum / quantityScores));
         }
         return labels;
     }

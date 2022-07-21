@@ -19,4 +19,12 @@ public class Pupil {
     public List<Subject> getSubjects() {
         return subjects;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSubjects(List<Subject> subjects) {
+        this.subjects = subjects;
+    }
 }
