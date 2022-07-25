@@ -7,26 +7,32 @@ import java.util.List;
 
 public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
-        List<Subject> allPupilsSubjects = pupils.stream()
-                .map(Pupil::subjects)
-                .flatMap(Collection::stream)
-                .toList();
-        double scoresSum = allPupilsSubjects.stream()
-                .mapToInt(Subject::score)
-                .sum();
-        double scoresNumber = allPupilsSubjects.stream().count();
+        List<Subject> allPupilsSubjects = new ArrayList<>();
+        int scoresNumber = 0;
+        for (int i = 0; i < pupils.size(); i++) {
+            for (int subjectIndex = 0; subjectIndex < pupils.get(i).subjects().size(); subjectIndex++) {
+                allPupilsSubjects.add(pupils.get(i).subjects().get(subjectIndex));
+                scoresNumber++;
+            }
+        }
+        double scoresSum = 0;
+        for (Subject subject : allPupilsSubjects) {
+            scoresSum += subject.score();
+        }
         return scoresSum / scoresNumber;
     }
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
-        List<Subject> allPupilsSubjects = pupils.stream()
-                .map(Pupil::subjects)
-                .flatMap(Collection::stream)
-                .toList();
-        List<String> distinctSubjects = allPupilsSubjects.stream()
-                .map(Subject::name)
-                .distinct()
-                .toList();
+        List<Subject> allPupilsSubjects = new ArrayList<>();
+        for (int i = 0; i < pupils.size(); i++) {
+            allPupilsSubjects.addAll(pupils.get(i).subjects());
+        }
+        List<Subject> distinctSubjects = new ArrayList<>();
+        for (Subject subject : allPupilsSubjects) {
+            if (!distinctSubjects.contains(subject)) {
+                distinctSubjects.add(subject);
+            }
+        }
         List<Label> labels = new ArrayList<>();
         for (int i = 0; i < distinctSubjects.size(); i++) {
             String name = "";
@@ -72,14 +78,16 @@ public class AnalyzeByMap {
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
-        List<Subject> allPupilsSubjects = pupils.stream()
-                .map(Pupil::subjects)
-                .flatMap(Collection::stream)
-                .toList();
-        List<String> distinctSubjects = allPupilsSubjects.stream()
-                .map(Subject::name)
-                .distinct()
-                .toList();
+        List<Subject> allPupilsSubjects = new ArrayList<>();
+        for (int i = 0; i < pupils.size(); i++) {
+            allPupilsSubjects.addAll(pupils.get(i).subjects());
+        }
+        List<Subject> distinctSubjects = new ArrayList<>();
+        for (Subject subject : allPupilsSubjects) {
+            if (!distinctSubjects.contains(subject)) {
+                distinctSubjects.add(subject);
+            }
+        }
         List<Label> sumsBySubject = new ArrayList<>();
         for (int i = 0; i < distinctSubjects.size(); i++) {
             String name = "";
