@@ -25,7 +25,9 @@ public class AnalyzeByMap {
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         List<Subject> allPupilsSubjects = new ArrayList<>();
         for (int i = 0; i < pupils.size(); i++) {
-            allPupilsSubjects.addAll(pupils.get(i).subjects());
+            for (int subjectIndex = 0; subjectIndex < pupils.get(i).subjects().size(); subjectIndex++) {
+                allPupilsSubjects.add(pupils.get(i).subjects().get(subjectIndex));
+            }
         }
         List<Subject> distinctSubjects = new ArrayList<>();
         for (Subject subject : allPupilsSubjects) {
@@ -41,7 +43,7 @@ public class AnalyzeByMap {
             for (int j = 0; j < allPupilsSubjects.size(); j++) {
                 if (distinctSubjects.get(i).equals(allPupilsSubjects.get(j).name())) {
                     name = allPupilsSubjects.get(j).name();
-                    scoresSum += (double) allPupilsSubjects.get(j).score();
+                    scoresSum += allPupilsSubjects.get(j).score();
                     quantityScores++;
                 }
             }
@@ -80,7 +82,9 @@ public class AnalyzeByMap {
     public static Label bestSubject(List<Pupil> pupils) {
         List<Subject> allPupilsSubjects = new ArrayList<>();
         for (int i = 0; i < pupils.size(); i++) {
-            allPupilsSubjects.addAll(pupils.get(i).subjects());
+            for (int subjectIndex = 0; subjectIndex < pupils.get(i).subjects().size(); subjectIndex++) {
+                allPupilsSubjects.add(pupils.get(i).subjects().get(subjectIndex));
+            }
         }
         List<Subject> distinctSubjects = new ArrayList<>();
         for (Subject subject : allPupilsSubjects) {
@@ -90,15 +94,13 @@ public class AnalyzeByMap {
         }
         List<Label> sumsBySubject = new ArrayList<>();
         for (int i = 0; i < distinctSubjects.size(); i++) {
-            String name = "";
             double scoresSum = 0D;
             for (int j = 0; j < allPupilsSubjects.size(); j++) {
                 if (distinctSubjects.get(i).equals(allPupilsSubjects.get(j).name())) {
-                    name = allPupilsSubjects.get(j).name();
                     scoresSum += (double) allPupilsSubjects.get(j).score();
                 }
             }
-            sumsBySubject.add(new Label(name, scoresSum));
+            sumsBySubject.add(new Label(distinctSubjects.get(i).name(), scoresSum));
         }
         sumsBySubject.sort(Comparator.naturalOrder());
         return sumsBySubject.get(sumsBySubject.size() - 1);
