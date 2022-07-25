@@ -7,11 +7,11 @@ import java.util.List;
 public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
         List<Subject> allPupilsSubjects = pupils.stream()
-                .map(Pupil::getSubjects)
+                .map(Pupil::subjects)
                 .flatMap(Collection::stream)
                 .toList();
         double scoresSum = allPupilsSubjects.stream()
-                .mapToInt(Subject::getScore)
+                .mapToInt(Subject::score)
                 .sum();
         double scoresNumber = allPupilsSubjects.stream().count();
         return scoresSum / scoresNumber;
@@ -19,11 +19,11 @@ public class AnalyzeByMap {
 
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         List<Subject> allPupilsSubjects = pupils.stream()
-                .map(Pupil::getSubjects)
+                .map(Pupil::subjects)
                 .flatMap(Collection::stream)
                 .toList();
         List<String> distinctSubjects = allPupilsSubjects.stream()
-                .map(Subject::getName)
+                .map(Subject::name)
                 .distinct()
                 .toList();
         List<Label> labels = new ArrayList<>();
@@ -32,19 +32,29 @@ public class AnalyzeByMap {
             double quantityScores = 0D;
             double scoresSum = 0D;
             for (int j = 0; j < allPupilsSubjects.size(); j++) {
-                if (distinctSubjects.get(i).equals(allPupilsSubjects.get(j).getName())) {
-                    name = allPupilsSubjects.get(j).getName();
-                    scoresSum += (double) allPupilsSubjects.get(j).getScore();
+                if (distinctSubjects.get(i).equals(allPupilsSubjects.get(j).name())) {
+                    name = allPupilsSubjects.get(j).name();
+                    scoresSum += (double) allPupilsSubjects.get(j).score();
                     quantityScores++;
                 }
             }
-        labels.add(new Label(name, (double) scoresSum / quantityScores));
+            labels.add(new Label(name, (double) scoresSum / quantityScores));
         }
         return labels;
     }
 
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
-        return List.of();
+        List<Label> sumsScoresLabels = new ArrayList<>();
+        for (int i = 0; i < pupils.size(); i++) {
+            double sum = 0;
+            int quantitySubjects = 0;
+            for (int pupilIndex = 0; pupilIndex < pupils.get(i).subjects().size(); pupilIndex++) {
+                sum += pupils.get(i).subjects().get(pupilIndex).score();
+                quantitySubjects++;
+                }
+            sumsScoresLabels.add(new Label(pupils.get(i).name(), sum / quantitySubjects));
+            }
+        return sumsScoresLabels;
     }
 
     public static Label bestStudent(List<Pupil> pupils) {
