@@ -29,25 +29,27 @@ public class AnalyzeByMap {
                 allPupilsSubjects.add(pupils.get(i).subjects().get(subjectIndex));
             }
         }
-        List<Subject> distinctSubjects = new ArrayList<>();
+        List<String> subjectNames = new ArrayList<>();
         for (Subject subject : allPupilsSubjects) {
-            if (!distinctSubjects.contains(subject)) {
-                distinctSubjects.add(subject);
+            subjectNames.add(subject.name());
+        }
+        List<String> distinctSubjects = new ArrayList<>();
+        for (String subjectName : subjectNames) {
+            if (!distinctSubjects.contains(subjectName)) {
+                distinctSubjects.add(subjectName);
             }
         }
         List<Label> labels = new ArrayList<>();
         for (int i = 0; i < distinctSubjects.size(); i++) {
-            String name = "";
             double quantityScores = 0D;
             double scoresSum = 0D;
             for (int j = 0; j < allPupilsSubjects.size(); j++) {
                 if (distinctSubjects.get(i).equals(allPupilsSubjects.get(j).name())) {
-                    name = allPupilsSubjects.get(j).name();
                     scoresSum += allPupilsSubjects.get(j).score();
                     quantityScores++;
                 }
             }
-            labels.add(new Label(name, (double) scoresSum / quantityScores));
+            labels.add(new Label(distinctSubjects.get(i), (double) scoresSum / quantityScores));
         }
         return labels;
     }
@@ -60,9 +62,9 @@ public class AnalyzeByMap {
             for (int pupilIndex = 0; pupilIndex < pupils.get(i).subjects().size(); pupilIndex++) {
                 sum += pupils.get(i).subjects().get(pupilIndex).score();
                 quantitySubjects++;
-                }
-            avgScoresLabels.add(new Label(pupils.get(i).name(), sum / quantitySubjects));
             }
+            avgScoresLabels.add(new Label(pupils.get(i).name(), sum / quantitySubjects));
+        }
         return avgScoresLabels;
     }
 
@@ -86,10 +88,14 @@ public class AnalyzeByMap {
                 allPupilsSubjects.add(pupils.get(i).subjects().get(subjectIndex));
             }
         }
-        List<Subject> distinctSubjects = new ArrayList<>();
+        List<String> subjectNames = new ArrayList<>();
         for (Subject subject : allPupilsSubjects) {
-            if (!distinctSubjects.contains(subject)) {
-                distinctSubjects.add(subject);
+            subjectNames.add(subject.name());
+        }
+        List<String> distinctSubjects = new ArrayList<>();
+        for (String subjectName : subjectNames) {
+            if (!distinctSubjects.contains(subjectName)) {
+                distinctSubjects.add(subjectName);
             }
         }
         List<Label> sumsBySubject = new ArrayList<>();
@@ -100,7 +106,7 @@ public class AnalyzeByMap {
                     scoresSum += (double) allPupilsSubjects.get(j).score();
                 }
             }
-            sumsBySubject.add(new Label(distinctSubjects.get(i).name(), scoresSum));
+            sumsBySubject.add(new Label(distinctSubjects.get(i), scoresSum));
         }
         sumsBySubject.sort(Comparator.naturalOrder());
         return sumsBySubject.get(sumsBySubject.size() - 1);
