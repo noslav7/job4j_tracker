@@ -11,8 +11,6 @@ public class Task5 {
         List<Integer> uniqueEmployeeIds = employeeIds.stream()
                 .distinct()
                 .toList();
-
-
         List<Integer> assignTwoOrMoreIds = new ArrayList<>();
         for (int i = 0; i < uniqueEmployeeIds.size(); i++) {
             int tasksNumber = 0;
