@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PasswordValidatorTests {
 
        @Test
-       public void whenPasswordNullThanNullException () {
+       public void whenPasswordNullThanNullException() {
               NullPointerException nullPointerException
                       = assertThrows(NullPointerException.class,
                       () -> PasswordValidator.validate(null));
