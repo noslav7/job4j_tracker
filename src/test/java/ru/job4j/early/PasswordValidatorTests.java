@@ -17,7 +17,7 @@ public class PasswordValidatorTests {
        }
 
        @Test
-       public void whenPasswordLengthOutBoundsThanIllegalException () {
+       public void whenPasswordLengthOutBoundsThanIllegalException() {
               IllegalArgumentException illegalArgumentException
                       = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("hello"));
@@ -27,7 +27,7 @@ public class PasswordValidatorTests {
        }
 
        @Test
-       public void whenNoUppercaseThanIllegalException () {
+       public void whenNoUppercaseThanIllegalException() {
               IllegalArgumentException illegalArgumentException
                       = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("helloworld"));
@@ -37,7 +37,7 @@ public class PasswordValidatorTests {
        }
 
        @Test
-       public void whenNoLowercaseThanIllegalException () {
+       public void whenNoLowercaseThanIllegalException() {
               IllegalArgumentException illegalArgumentException
                       = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("HELLOWORLD"));
@@ -47,7 +47,7 @@ public class PasswordValidatorTests {
        }
 
        @Test
-       public void whenNoDigitsThanIllegalException () {
+       public void whenNoDigitsThanIllegalException() {
               IllegalArgumentException illegalArgumentException
                       = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("helloWorld"));
@@ -57,7 +57,7 @@ public class PasswordValidatorTests {
        }
 
        @Test
-       public void whenNoSpecialCharactersThanIllegalException () {
+       public void whenNoSpecialCharactersThanIllegalException() {
               IllegalArgumentException illegalArgumentException
                       = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("helloWorld39"));
@@ -67,7 +67,7 @@ public class PasswordValidatorTests {
        }
 
        @Test
-       public void whenTooSimpleThanIllegalException () {
+       public void whenTooSimpleThanIllegalException() {
               IllegalArgumentException illegalArgumentException
                       = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("pAssWorD@987"));
