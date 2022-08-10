@@ -8,15 +8,18 @@ public class PasswordValidatorTests {
 
        @Test
        public void whenPasswordNullThanNullException () {
-              NullPointerException nullPointerException = assertThrows(NullPointerException.class,
+              NullPointerException nullPointerException
+                      = assertThrows(NullPointerException.class,
                       () -> PasswordValidator.validate(null));
 
-              assertTrue(nullPointerException.getMessage().contains("The password may not be null."));
+              assertTrue(nullPointerException.getMessage()
+                      .contains("The password may not be null."));
        }
 
        @Test
        public void whenPasswordLengthOutBoundsThanIllegalException () {
-              IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
+              IllegalArgumentException illegalArgumentException
+                      = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("hello"));
 
               assertTrue(illegalArgumentException.getMessage()
@@ -25,7 +28,8 @@ public class PasswordValidatorTests {
 
        @Test
        public void whenNoUppercaseThanIllegalException () {
-              IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
+              IllegalArgumentException illegalArgumentException
+                      = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("helloworld"));
 
               assertTrue(illegalArgumentException.getMessage()
@@ -34,7 +38,8 @@ public class PasswordValidatorTests {
 
        @Test
        public void whenNoLowercaseThanIllegalException () {
-              IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
+              IllegalArgumentException illegalArgumentException
+                      = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("HELLOWORLD"));
 
               assertTrue(illegalArgumentException.getMessage()
@@ -43,7 +48,8 @@ public class PasswordValidatorTests {
 
        @Test
        public void whenNoDigitsThanIllegalException () {
-              IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
+              IllegalArgumentException illegalArgumentException
+                      = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("helloWorld"));
 
               assertTrue(illegalArgumentException.getMessage()
@@ -52,7 +58,8 @@ public class PasswordValidatorTests {
 
        @Test
        public void whenNoSpecialCharactersThanIllegalException () {
-              IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
+              IllegalArgumentException illegalArgumentException
+                      = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("helloWorld39"));
 
               assertTrue(illegalArgumentException.getMessage()
@@ -61,7 +68,8 @@ public class PasswordValidatorTests {
 
        @Test
        public void whenTooSimpleThanIllegalException () {
-              IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
+              IllegalArgumentException illegalArgumentException
+                      = assertThrows(IllegalArgumentException.class,
                       () -> PasswordValidator.validate("pAssWorD@987"));
 
               assertTrue(illegalArgumentException.getMessage()
