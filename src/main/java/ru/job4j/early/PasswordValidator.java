@@ -4,24 +4,26 @@ public class PasswordValidator {
 
     public static String validate(String password) {
         if (password == null) {
-            throw new IllegalArgumentException("Password may not be null.");
+            throw new NullPointerException("The password may not be null.");
         }
 
         if (password.length() < 8 || password.length() > 32) {
-            throw new IllegalArgumentException("Password length is out of necessary bounds.");
+            throw new IllegalArgumentException("The password length"
+                    + " should not be inferior to 8 or exceed 32.");
         }
 
         char[] passwordChars = password.toCharArray();
 
-        boolean atLeastOneUpperCase = false;
+        boolean atLeastOneUppercase = false;
         for (int i = 0; i < passwordChars.length; i++) {
             if (Character.isUpperCase(passwordChars[i])) {
-                atLeastOneUpperCase = true;
+                atLeastOneUppercase = true;
                 break;
             }
         }
-        if (!atLeastOneUpperCase) {
-            throw new IllegalArgumentException("At least one password letter should be an uppercase.");
+        if (!atLeastOneUppercase) {
+            throw new IllegalArgumentException("At least one password"
+                    + " letter should be an uppercase.");
         }
 
         boolean atLeastOneLowerCase = false;
@@ -32,7 +34,8 @@ public class PasswordValidator {
             }
         }
         if (!atLeastOneLowerCase) {
-            throw new IllegalArgumentException("At least one password letter should be a lowercase.");
+            throw new IllegalArgumentException("At least one password"
+                    + " letter should be a lowercase.");
         }
 
         boolean atLeastOneDigit = false;
@@ -43,7 +46,8 @@ public class PasswordValidator {
             }
         }
         if (!atLeastOneDigit) {
-            throw new IllegalArgumentException("At least one password letter should be a digit.");
+            throw new IllegalArgumentException("At least one password letter"
+                    + " should be a digit.");
         }
 
         boolean atLeastOneSpecChar = false;
@@ -54,13 +58,16 @@ public class PasswordValidator {
             }
         }
         if (!atLeastOneSpecChar) {
-            throw new IllegalArgumentException("At least one password letter should be a special character.");
+            throw new IllegalArgumentException("At least one password symbol"
+                    + " should be a special character.");
         }
 
         if (password.toLowerCase().contains("qwerty") || password.contains("12345")
-                || password.toLowerCase().contains("password") || password.toLowerCase().contains("admin")
+                || password.toLowerCase().contains("password")
+                || password.toLowerCase().contains("admin")
                 || password.toLowerCase().contains("user")) {
-            throw new IllegalArgumentException("The password may not contain overly simple substrings.");
+            throw new IllegalArgumentException("The password may not "
+                    + "contain overly simple substrings.");
         }
 
         return password;
