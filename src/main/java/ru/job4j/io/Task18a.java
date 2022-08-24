@@ -3,7 +3,7 @@ package ru.job4j.io;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Task18_1 {
+public class Task18a {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         double a = input.nextDouble();

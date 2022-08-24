@@ -10,26 +10,30 @@ public class Task21 {
         String space = " ";
         int r, c, d;
         for (r = 1; r <= columnCount; r++) {
-            for (c = 1; c < r; c++)
+            for (c = 1; c < r; c++) {
                 System.out.print(space);
-            for (c = r; c <= columnCount; c++) {
-                if (r == 1 || c == r || c == columnCount)
-                    System.out.print(star);
-                else
-                    System.out.print(space);
+                for (c = r; c <= columnCount; c++) {
+                    if (r == 1 || c == r || c == columnCount) {
+                        System.out.print(star);
+                    } else {
+                        System.out.print(space);
+                    }
+                }
+                System.out.println();
             }
-            System.out.println();
         }
         for (r = columnCount - 1; r >= 1; r--) {
-            for (c = 1; c < r; c++)
+            for (c = 1; c < r; c++) {
                 System.out.print(space);
-            for (c = r; c <= columnCount; c++) {
-                if (r == 1 || c == r || c == columnCount)
-                    System.out.print(star);
-                else
-                    System.out.print(space);
+                for (c = r; c <= columnCount; c++) {
+                    if (r == 1 || c == r || c == columnCount) {
+                        System.out.print(star);
+                    } else {
+                        System.out.print(space);
+                    }
+                    System.out.println();
+                }
             }
-            System.out.println();
         }
     }
 }
