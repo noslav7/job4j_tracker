@@ -10,15 +10,15 @@
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.12</version>
+            <version>42.4.2</version>
         </dependency>
             <dependency>
                 <groupId>org.hamcrest</groupId>
@@ -84,6 +84,14 @@
                     <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
+                    <plugin>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-maven-plugin</artifactId>
+                        <version>4.15.0</version>
+                        <configuration>
+                            <propertyFile>db/liquibase.properties</propertyFile>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
 </project>
