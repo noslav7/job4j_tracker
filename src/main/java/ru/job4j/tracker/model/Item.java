@@ -1,9 +1,7 @@
 package ru.job4j.tracker.model;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
@@ -49,8 +47,8 @@ public class Item {
         this.name = name;
     }
 
-    public Date getCreated() {
-        return java.sql.Date.valueOf(String.valueOf(created));
+    public LocalDateTime getCreated() {
+        return Date.valueOf(String.valueOf(created)).toLocalDate().atStartOfDay();
     }
 
     public void setCreated(LocalDateTime created) {

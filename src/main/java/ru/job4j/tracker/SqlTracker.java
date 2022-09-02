@@ -4,6 +4,7 @@ import ru.job4j.tracker.model.Item;
 
 import java.io.InputStream;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -33,13 +34,12 @@ public class SqlTracker implements Store, AutoCloseable {
     }
 
     @Override
-    // add
     public Item add(Item item) {
         try (PreparedStatement statement =
-                     cn.prepareStatement("insert into items(name, id) values (?, ?)",
+                     cn.prepareStatement("insert into items(name, created) values (?, ?)",
                              Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, item.getName());
-            statement.setInt(2, item.getId());
+            statement.setTimestamp(2, Timestamp.valueOf(String.valueOf(item.getCreated())));
             statement.execute();
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
@@ -57,8 +57,8 @@ public class SqlTracker implements Store, AutoCloseable {
         boolean result = false;
         try (PreparedStatement statement =
                      cn.prepareStatement("update items set name = ?, created = ? where id = ?")) {
-            statement.setString(1, item.getName());;
-            statement.setDate(2, item.getCreated());
+            statement.setString(1, item.getName());
+            statement.setTimestamp(2, Timestamp.valueOf(String.valueOf(item.getCreated())));
             statement.setInt(3, item.getId());
             result = statement.executeUpdate() > 0;
         } catch (Exception e) {
@@ -81,16 +81,63 @@ public class SqlTracker implements Store, AutoCloseable {
 
     @Override
     public List<Item> findAll() {
-        return null;
+        List<Item> items = new ArrayList<>();
+        try (PreparedStatement statement = cn.prepareStatement("select * from items")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    items.add(new Item(
+                            resultSet.getInt("id"),
+                            resultSet.getString("name"),
+                            resultSet.getTimestamp("created").toLocalDateTime()
+                    ));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return items;
     }
 
     @Override
     public List<Item> findByName(String key) {
-        return null;
+        List<Item> items = new ArrayList<>();
+        try (PreparedStatement statement = cn.prepareStatement("select * from items")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    if (resultSet.getString("name").equals(key)) {
+                        items.add(new Item(
+                                resultSet.getInt("id"),
+                                resultSet.getString("name"),
+                                resultSet.getTimestamp("created").toLocalDateTime()
+                        ));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return items;
     }
 
     @Override
     public Item findById(int id) {
-        return null;
+        Item item = null;
+        try (PreparedStatement statement = cn.prepareStatement("select * from items")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    if (resultSet.getInt("id") == id) {
+                        item = new Item(
+                                resultSet.getInt("id"),
+                                resultSet.getString("name"),
+                                resultSet.getTimestamp("created").toLocalDateTime()
+                        );
+                        break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return item;
     }
 }
