@@ -5,7 +5,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 
-class Task3Test {
+public class Task3Test {
 
     @Test
     public void whenNoDuplicate() {
