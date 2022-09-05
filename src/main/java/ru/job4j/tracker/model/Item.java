@@ -48,7 +48,7 @@ public class Item {
     }
 
     public LocalDateTime getCreated() {
-        return Date.valueOf(String.valueOf(created)).toLocalDate().atStartOfDay();
+        return created;
     }
 
     public void setCreated(LocalDateTime created) {

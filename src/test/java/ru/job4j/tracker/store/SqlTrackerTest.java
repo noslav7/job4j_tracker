@@ -1,9 +1,6 @@
 package ru.job4j.tracker.store;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import ru.job4j.tracker.model.Item;
 
 import java.io.InputStream;
@@ -17,6 +14,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+@Ignore
 public class SqlTrackerTest {
     private static Connection connection;
 
