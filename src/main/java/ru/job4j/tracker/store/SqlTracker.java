@@ -1,14 +1,16 @@
 package ru.job4j.tracker.store;
 
 import ru.job4j.tracker.Store;
+
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
+
 import ru.job4j.tracker.model.Item;
+
 public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
     private List<Item> items = new ArrayList<>();
@@ -45,55 +47,101 @@ public class SqlTracker implements Store, AutoCloseable {
 
     @Override
     public Item add(Item item) {
-        items.add(item);
+        try (PreparedStatement statement =
+                     cn.prepareStatement("insert into items(name, created) values (?, ?)",
+                             Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, item.getName());
+            statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
+            statement.execute();
+            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    item.setId(generatedKeys.getInt(1));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return item;
     }
 
     @Override
     public boolean replace(int id, Item item) {
-        boolean replace = false;
-        if (id > -1 && id <  items.size()) {
-            items.set(id, item);
-            replace = true;
+        boolean result = false;
+        try (PreparedStatement statement =
+                     cn.prepareStatement("update items set name = ?, created = ? where id = (?)")) {
+            statement.setString(1, item.getName());
+            statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
+            statement.setInt(3, id);
+            result = statement.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return replace;
+        return result;
     }
 
     @Override
     public boolean delete(int id) {
-        boolean deleted = false;
-        if (id > -1 && id <  items.size()) {
-            items.remove(id);
-            deleted = true;
+        boolean result = false;
+        try (PreparedStatement statement =
+                     cn.prepareStatement("delete from items where id = ?")) {
+            statement.setInt(1, id);
+            result = statement.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return deleted;
+        return result;
     }
 
     @Override
     public List<Item> findAll() {
-        return new ArrayList<>(items);
+        List<Item> items = new ArrayList<>();
+        try (PreparedStatement statement = cn.prepareStatement("select * from items")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    itemFromResultSet(items, resultSet);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return items;
     }
 
     @Override
     public List<Item> findByName(String key) {
-        List<Item> findings = new ArrayList<>();
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getName().equals(key)) {
-                findings.add(items.get(i));
+        List<Item> items = new ArrayList<>();
+        try (PreparedStatement statement = cn.prepareStatement("select * from items where name = ?")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    if (resultSet.getString("name").equals(key)) {
+                        itemFromResultSet(items, resultSet);
+                    }
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return findings;
+        return items;
+    }
+
+    private boolean itemFromResultSet(List<Item> items, ResultSet resultSet) throws SQLException {
+        return itemFromResultSet(items, resultSet);
     }
 
     @Override
     public Item findById(int id) {
-        Item foundItem = null;
-        for (Item item : items) {
-            if (item.getId() == id) {
-               foundItem = item;
+        Item item = null;
+        try (PreparedStatement statement = cn.prepareStatement("select * from items where id = ?")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    itemFromResultSet(items, resultSet);
+                    break;
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return foundItem;
+        return item;
     }
 
     @Override
