@@ -6,14 +6,12 @@ import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Properties;
 
 import ru.job4j.tracker.model.Item;
 
 public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
-    private List<Item> items = new ArrayList<>();
 
     public SqlTracker(Connection connection) {
         this.cn = connection;
@@ -99,7 +97,7 @@ public class SqlTracker implements Store, AutoCloseable {
         try (PreparedStatement statement = cn.prepareStatement("select * from items")) {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    itemFromResultSet(items, resultSet);
+                    itemFromResultSet(resultSet);
                 }
             }
         } catch (Exception e) {
@@ -113,10 +111,11 @@ public class SqlTracker implements Store, AutoCloseable {
         List<Item> items = new ArrayList<>();
         try (PreparedStatement statement = cn.prepareStatement(
                 "select * from items where name = ?")) {
+            statement.setString(1, "key");
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     if (resultSet.getString("name").equals(key)) {
-                        itemFromResultSet(items, resultSet);
+                        itemFromResultSet(resultSet);
                     }
                 }
             }
@@ -126,9 +125,12 @@ public class SqlTracker implements Store, AutoCloseable {
         return items;
     }
 
-    private boolean itemFromResultSet(List<Item> items, ResultSet resultSet)
-            throws SQLException {
-        return itemFromResultSet(items, resultSet);
+    private Item itemFromResultSet(ResultSet resultSet) throws SQLException {
+        return new Item(
+                resultSet.getInt("id"),
+                resultSet.getString("name"),
+                resultSet.getTimestamp("created").toLocalDateTime()
+        );
     }
 
     @Override
@@ -136,36 +138,15 @@ public class SqlTracker implements Store, AutoCloseable {
         Item item = null;
         try (PreparedStatement statement = cn.prepareStatement(
                 "select * from items where id = ?")) {
+            statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
-                    itemFromResultSet(items, resultSet);
-                    break;
+                if (resultSet.next()) {
+                    itemFromResultSet(resultSet);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return item;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SqlTracker that = (SqlTracker) o;
-        return Objects.equals(cn, that.cn);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cn);
-    }
-
-    public List<Item> getItems() {
-        return items;
     }
 }
