@@ -97,7 +97,7 @@ public class SqlTracker implements Store, AutoCloseable {
         try (PreparedStatement statement = cn.prepareStatement("select * from items")) {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    itemFromResultSet(resultSet);
+                    items.add(itemFromResultSet(resultSet));
                 }
             }
         } catch (Exception e) {
@@ -111,12 +111,10 @@ public class SqlTracker implements Store, AutoCloseable {
         List<Item> items = new ArrayList<>();
         try (PreparedStatement statement = cn.prepareStatement(
                 "select * from items where name = ?")) {
-            statement.setString(1, "key");
+            statement.setString(1, key);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    if (resultSet.getString("name").equals(key)) {
                         itemFromResultSet(resultSet);
-                    }
                 }
             }
         } catch (Exception e) {

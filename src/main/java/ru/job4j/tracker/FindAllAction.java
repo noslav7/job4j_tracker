@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import ru.job4j.tracker.model.Item;
 
+import java.util.List;
+
 public class FindAllAction implements UserAction {
 
     private final Output out;
@@ -18,9 +20,10 @@ public class FindAllAction implements UserAction {
     @Override
     public boolean execute(Input input, Store store) {
         out.println("=== Find all elements ====");
-        String name = input.askStr("Enter name: ");
-        Item item = new Item(name);
-        store.add(item);
+        List<Item> findAll = store.findAll();
+        for (Item item : findAll) {
+            out.println(item);
+        }
         return true;
     }
 }

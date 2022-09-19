@@ -16,10 +16,7 @@ public class ExitAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Store store) {
-        out.println("=== Create a new item ====");
-        String name = input.askStr("Enter name: ");
-        Item item = new Item(name);
-        store.add(item);
-        return true;
+        out.println("=== Exit program ====");
+        return false;
     }
 }

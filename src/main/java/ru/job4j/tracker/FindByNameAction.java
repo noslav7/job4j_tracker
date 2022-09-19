@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import ru.job4j.tracker.model.Item;
 
+import java.util.List;
+
 public class FindByNameAction implements UserAction {
     private final Output out;
 
@@ -18,8 +20,14 @@ public class FindByNameAction implements UserAction {
     public boolean execute(Input input, Store store) {
         out.println("=== Create a new item ====");
         String name = input.askStr("Enter name: ");
-        Item item = new Item(name);
-        store.add(item);
+        List<Item> findName = store.findByName(name);
+        if (findName.size() > 0) {
+            for (Item itemFindName : findName) {
+                out.println(itemFindName);
+            }
+        } else {
+            out.println("Заявка с таким id не найдена");
+        }
         return true;
     }
 }
