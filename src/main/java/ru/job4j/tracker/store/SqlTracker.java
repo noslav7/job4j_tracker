@@ -114,7 +114,7 @@ public class SqlTracker implements Store, AutoCloseable {
             statement.setString(1, key);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                        itemFromResultSet(resultSet);
+                    items.add(itemFromResultSet(resultSet));
                 }
             }
         } catch (Exception e) {
