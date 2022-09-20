@@ -139,7 +139,7 @@ public class SqlTracker implements Store, AutoCloseable {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    itemFromResultSet(resultSet);
+                    item = itemFromResultSet(resultSet);
                 }
             }
         } catch (Exception e) {
