@@ -11,10 +11,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
-@Ignore
 public class SqlTrackerTest {
     private static Connection connection;
 
@@ -54,6 +52,36 @@ public class SqlTrackerTest {
         Item item = new Item("item");
         tracker.add(item);
         assertThat(tracker.findById(item.getId()), is(item));
+    }
+
+    @Test
+    public void replaceTest() {
+
+    }
+
+    @Test
+    public void deleteTest() {
+
+    }
+
+    @Test
+    public void findAllTest() {
+
+    }
+
+    @Test
+    public void findByNameTest() {
+
+    }
+
+    @Test
+    public void findByIdTest() {
+
+    }
+
+    @Test
+    public void itemFromResultSetTest() {
+
     }
 
 }
