@@ -72,12 +72,22 @@ public class SqlTrackerTest {
 
     @Test
     public void deleteTest() {
-
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item");
+        tracker.add(item);
+        tracker.add(item);
+        tracker.add(item);
+        assertThat(tracker.delete(0));
     }
 
     @Test
     public void findAllTest() {
-
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item");
+        tracker.add(item);
+        tracker.add(item);
+        tracker.add(item);
+        assertThat(tracker.findAll().size() == 3);
     }
 
     @Test
