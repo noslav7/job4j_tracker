@@ -1,6 +1,11 @@
 package ru.job4j.tracker.store;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import ru.job4j.tracker.model.Item;
 
 import java.io.InputStream;
@@ -10,13 +15,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SqlTrackerTest {
     private static Connection connection;
 
-    @BeforeClass
+    @BeforeAll
     public static void initConnection() {
         try (InputStream in = SqlTrackerTest.class.getClassLoader()
                 .getResourceAsStream("test.properties")) {
@@ -34,12 +38,12 @@ public class SqlTrackerTest {
         }
     }
 
-    @AfterClass
+    @AfterAll
     public static void closeConnection() throws SQLException {
         connection.close();
     }
 
-    @After
+    @AfterEach
     public void wipeTable() throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("delete from items")) {
             statement.execute();
@@ -51,12 +55,19 @@ public class SqlTrackerTest {
         SqlTracker tracker = new SqlTracker(connection);
         Item item = new Item("item");
         tracker.add(item);
-        assertThat(tracker.findById(item.getId()), is(item));
+        assertThat(tracker.findById(item.getId())).isEqualTo(item);
     }
 
     @Test
     public void replaceTest() {
-
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item");
+        Item anotherItem = new Item("anotherItem");
+        tracker.add(item);
+        tracker.add(item);
+        tracker.add(item);
+        tracker.replace(2, anotherItem);
+        assertThat(tracker.findById(anotherItem.getId())).isEqualTo(anotherItem);
     }
 
     @Test
