@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class mapToObjExample {
+public class MapToObjExample {
     public static void main(String[] args) {
         List<String> list = IntStream.rangeClosed(1, 5)
         /* запускаем поток примитивных чисел int от 1 до 5 */
