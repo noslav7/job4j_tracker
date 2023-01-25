@@ -1,7 +1,5 @@
 package ru.job4j.tracker.store;
 
-import org.hamcrest.MatcherAssert;
-import org.junit.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,10 +7,9 @@ import org.junit.jupiter.api.Test;
 import ru.job4j.tracker.model.Item;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -92,17 +89,45 @@ public class SqlTrackerTest {
 
     @Test
     public void findByNameTest() {
-
+        SqlTracker tracker = new SqlTracker(connection);
+        Item firstItem = new Item("firstItem");
+        Item secondItem = new Item("secondItem");
+        Item thirdItem = new Item("thirdItem");
+        tracker.add(firstItem);
+        tracker.add(secondItem);
+        tracker.add(thirdItem);
+        tracker.add(secondItem);
+        List<Item> expectedItems = new ArrayList<>();
+        expectedItems.add(secondItem);
+        expectedItems.add(secondItem);
+        assertThat(tracker.findByName("secondItem").equals(expectedItems));
     }
 
     @Test
     public void findByIdTest() {
-
+        SqlTracker tracker = new SqlTracker(connection);
+        Item firstItem = new Item("firstItem");
+        Item secondItem = new Item("secondItem");
+        Item thirdItem = new Item("thirdItem");
+        tracker.add(firstItem);
+        tracker.add(secondItem);
+        tracker.add(thirdItem);
+        assertThat(tracker.findById(2).equals(thirdItem));
     }
 
     @Test
     public void itemFromResultSetTest() {
-
+        SqlTracker tracker = new SqlTracker(connection);
+        Item actualItem = null;
+        try (PreparedStatement statement = connection.prepareStatement(
+                "select * from items where name = 'item'")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                    actualItem = tracker.itemFromResultSet(resultSet);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertThat(actualItem.getName().equals("item"));
     }
 
 }

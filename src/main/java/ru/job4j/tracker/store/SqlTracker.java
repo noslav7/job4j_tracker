@@ -123,14 +123,6 @@ public class SqlTracker implements Store, AutoCloseable {
         return items;
     }
 
-    private Item itemFromResultSet(ResultSet resultSet) throws SQLException {
-        return new Item(
-                resultSet.getInt("id"),
-                resultSet.getString("name"),
-                resultSet.getTimestamp("created").toLocalDateTime()
-        );
-    }
-
     @Override
     public Item findById(int id) {
         Item item = null;
@@ -146,5 +138,13 @@ public class SqlTracker implements Store, AutoCloseable {
             e.printStackTrace();
         }
         return item;
+    }
+
+    Item itemFromResultSet(ResultSet resultSet) throws SQLException {
+        return new Item(
+                resultSet.getInt("id"),
+                resultSet.getString("name"),
+                resultSet.getTimestamp("created").toLocalDateTime()
+        );
     }
 }
