@@ -10,7 +10,8 @@ public class FlatMapToIntExample {
         int[] array1 = {1, 2, 3};
         int[] array2 = {4, 5, 6};
         int[] array3 = {7, 8, 9};
-        List<Integer> list = Stream.of(array1, array2, array3) /* запускаем поток из 3 массивов int */
+        List<Integer> list = Stream.of(array1, array2, array3)
+                /* запускаем поток из 3 массивов int */
                 .flatMapToInt(Arrays::stream)
         /* трансформируем элементы потока (массивы) в потоки int */
                 .boxed() /* упаковываем значения int в Integer, чтобы собрать их в лист */
