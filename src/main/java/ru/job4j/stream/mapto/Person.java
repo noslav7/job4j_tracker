@@ -1,4 +1,4 @@
-package ru.job4j.stream.mapTo;
+package ru.job4j.stream.mapto;
 
 import java.util.Objects;
 
