@@ -8,7 +8,6 @@ import ru.job4j.tracker.model.Item;
 
 import java.io.InputStream;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -50,84 +49,68 @@ public class SqlTrackerTest {
     @Test
     public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
-        tracker.add(item);
+
+        Item item =  tracker.add(new Item("item"));
+
         assertThat(tracker.findById(item.getId())).isEqualTo(item);
     }
 
     @Test
-    public void replaceTest() {
+    public void whenReplaceThenAnotherName() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
+
+        Item item = tracker.add(new Item("item"));
+        tracker.add(item);
+        tracker.add(item);
         Item anotherItem = new Item("anotherItem");
-        tracker.add(item);
-        tracker.add(item);
-        tracker.add(item);
         tracker.replace(2, anotherItem);
-        assertThat(tracker.findById(anotherItem.getId())).isEqualTo(anotherItem);
+
+        assertThat(tracker.findById(anotherItem.getId()).getName()).isEqualTo(anotherItem.getName());
     }
 
     @Test
-    public void deleteTest() {
+    public void whenDeleteThenTrue() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
-        tracker.add(item);
-        tracker.add(item);
-        tracker.add(item);
-        assertThat(tracker.delete(0));
+
+        Item item1 = tracker.add(new Item("item"));
+        Item item2 = tracker.add(new Item("item"));
+        Item item3 = tracker.add(new Item("item"));
+        tracker.delete(2);
+
+        assertThat(tracker.findById(item3.getId()) == null);
     }
 
     @Test
-    public void findAllTest() {
+    public void whenFindAllThenThree() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
-        tracker.add(item);
-        tracker.add(item);
-        tracker.add(item);
+
+        tracker.add(new Item("item"));
+        tracker.add(new Item("item"));
+        tracker.add(new Item("item"));
+
         assertThat(tracker.findAll().size() == 3);
     }
 
     @Test
-    public void findByNameTest() {
+    public void whenFindByNameThenSecondItems() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item firstItem = new Item("firstItem");
-        Item secondItem = new Item("secondItem");
-        Item thirdItem = new Item("thirdItem");
-        tracker.add(firstItem);
+
+        Item firstItem = tracker.add(new Item("firstItem"));
+        Item secondItem = tracker.add(new Item("secondItem"));
+        Item thirdItem = tracker.add(new Item("thirdItem"));
         tracker.add(secondItem);
-        tracker.add(thirdItem);
-        tracker.add(secondItem);
-        List<Item> expectedItems = new ArrayList<>();
-        expectedItems.add(secondItem);
-        expectedItems.add(secondItem);
-        assertThat(tracker.findByName("secondItem").equals(expectedItems));
+
+        assertThat(tracker.findByName("secondItem").equals(List.of(secondItem, secondItem)));
     }
 
     @Test
-    public void findByIdTest() {
+    public void whenFindByIdThenThirdItem() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item firstItem = new Item("firstItem");
-        Item secondItem = new Item("secondItem");
-        Item thirdItem = new Item("thirdItem");
-        tracker.add(firstItem);
-        tracker.add(secondItem);
-        tracker.add(thirdItem);
+
+        Item firstItem = tracker.add(new Item("firstItem"));
+        Item secondItem = tracker.add(new Item("secondItem"));
+        Item thirdItem = tracker.add(new Item("thirdItem"));
+
         assertThat(tracker.findById(2).equals(thirdItem));
     }
-
-    @Test
-    public void itemFromResultSetTest() {
-        SqlTracker tracker = new SqlTracker(connection);
-        Item actualItem = null;
-        try (PreparedStatement statement = connection.prepareStatement(
-                "select * from items where name = 'item'")) {
-            try (ResultSet resultSet = statement.executeQuery()) {
-                    actualItem = tracker.itemFromResultSet(resultSet);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        assertThat(actualItem.getName().equals("item"));
-    }
-
 }

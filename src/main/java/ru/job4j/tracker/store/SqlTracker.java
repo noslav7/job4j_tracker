@@ -140,7 +140,7 @@ public class SqlTracker implements Store, AutoCloseable {
         return item;
     }
 
-    Item itemFromResultSet(ResultSet resultSet) throws SQLException {
+    private Item itemFromResultSet(ResultSet resultSet) throws SQLException {
         return new Item(
                 resultSet.getInt("id"),
                 resultSet.getString("name"),
