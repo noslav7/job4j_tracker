@@ -13,19 +13,15 @@ public class AppleStore {
     }
 
     public String getLastHappyCustomer() {
-        for (int i = 0; i < queue.size(); i++) {
-            if (i < count - 1) {
+        for (int i = 0; i < count - 1; i++) {
                 queue.remove();
-            }
         }
         return queue.peek().name();
     }
 
     public String getLastUpsetCustomer() {
-        for (int i = 0; i < queue.size(); i++) {
-            if (i < count) {
-                queue.remove();
-            }
+        for (int i = 0; i < count; i++) {
+            queue.remove();
         }
         return queue.peek().name();
     }
