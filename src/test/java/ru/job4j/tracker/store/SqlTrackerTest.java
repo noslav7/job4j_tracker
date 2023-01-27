@@ -57,9 +57,9 @@ public class SqlTrackerTest {
     @Test
     public void whenReplaceThenAnotherName() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item item1 = tracker.add(new Item("item1"));
+        tracker.add(new Item("item1"));
         Item item2 = tracker.add(new Item("item2"));
-        Item item3 = tracker.add(new Item("item3"));
+        tracker.add(new Item("item3"));
         Item anotherItem = new Item("anotherItem");
         tracker.replace(item2.getId(), anotherItem);
         assertThat(tracker.findById(item2.getId()).getName())
@@ -88,9 +88,9 @@ public class SqlTrackerTest {
     @Test
     public void whenFindByNameThenSecondItems() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item firstItem = tracker.add(new Item("firstItem"));
+        tracker.add(new Item("firstItem"));
         Item secondItem = tracker.add(new Item("secondItem"));
-        Item thirdItem = tracker.add(new Item("thirdItem"));
+        tracker.add(new Item("thirdItem"));
         assertThat(tracker.findByName("secondItem"))
                 .isEqualTo(List.of(secondItem));
     }
@@ -98,8 +98,8 @@ public class SqlTrackerTest {
     @Test
     public void whenFindByIdThenThirdItem() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item firstItem = tracker.add(new Item("firstItem"));
-        Item secondItem = tracker.add(new Item("secondItem"));
+        tracker.add(new Item("firstItem"));
+        tracker.add(new Item("secondItem"));
         Item thirdItem = tracker.add(new Item("thirdItem"));
         assertThat(tracker.findById(thirdItem.getId())).isEqualTo(thirdItem);
     }
