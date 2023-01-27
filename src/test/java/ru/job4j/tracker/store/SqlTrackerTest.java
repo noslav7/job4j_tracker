@@ -14,7 +14,7 @@ import java.util.Properties;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SqlTrackerTest {
-        private static Connection connection;
+            private static Connection connection;
 
     @BeforeAll
     public static void initConnection() {
