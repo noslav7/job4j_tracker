@@ -31,17 +31,7 @@ public class AnalyzeByMap {
         Map<String, Integer> temp = new LinkedHashMap<>();
         for (Pupil p : pupils) {
             for (Subject s : p.subjects()) {
-                /*
-                temp.computeIfPresent(s.name(), (key, value) -> value + s.score());
-                temp.putIfAbsent(s.name(), s.score());
-                */
-                Integer score = temp.get(s.name());
-                if (score != null) {
-                    score += s.score();
-                } else {
-                    score = s.score();
-                }
-                temp.put(s.name(), score);
+                temp.merge(s.name(), s.score(), (oldValue, newValue) -> oldValue + s.score());
             }
         }
         List<Label> result = new ArrayList<>();
@@ -68,17 +58,7 @@ public class AnalyzeByMap {
         Map<String, Integer> temp = new LinkedHashMap<>();
         for (Pupil p : pupils) {
             for (Subject s : p.subjects()) {
-                /*
-                temp.computeIfPresent(s.name(), (key, value) -> value + s.score());
-                temp.putIfAbsent(s.name(), s.score());
-                */
-                Integer score = temp.get(s.name());
-                if (score != null) {
-                    score += s.score();
-                } else {
-                    score = s.score();
-                }
-                temp.put(s.name(), score);
+                temp.merge(s.name(), s.score(), (oldValue, newValue) -> oldValue + s.score());
             }
         }
         List<Label> result = new ArrayList<>();
