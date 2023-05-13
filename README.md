@@ -1,5 +1,5 @@
 # job4j_tracker
 
-[![Build Status](https://travis-ci.com/noslav7/job4j_tracker.svg?branch=master)](https://travis-ci.com/noslav7/job4j_tracker)
-
-[![codecov](https://codecov.io/gh/noslav7/job4j_tracker/branch/master/graph/badge.svg?token=JMMRR0S0JZ)](https://codecov.io/gh/noslav7/job4j_tracker)
+The repository contains solutions of tasks of several study modules after the basic one of "Job4j" course. The tasks involve usage of Linked lists,
+Array lists, Hash sets, Tree sets, Hash maps, Comparators, sorting, enums, exceptions, lambda expressions, Streams, Interfaces, Queues, Dequeues
+and other structures.
