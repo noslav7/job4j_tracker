@@ -9,10 +9,10 @@ public class MemTracker implements Store {
     private int ids = 1;
 
     public static void main(String[] args) {
-        Store user1 = new MemTracker();
-        Store user2 = new MemTracker();
-        items.add((Item) user1);
-        items.add((Item) user2);
+        Item user1 = new Item();
+        Item user2 = new Item();
+        items.add(user1);
+        items.add(user2);
         items.remove(1);
         Item item = items.get(0);
     }
