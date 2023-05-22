@@ -4,7 +4,8 @@ import java.util.PriorityQueue;
 
 public class PriorityQueueRunner {
     public static void main(String[] args) {
-        PriorityQueue<Transaction> transactions = new PriorityQueue<>(new TransactionSortDescByAmount());
+        PriorityQueue<Transaction> transactions =
+                new PriorityQueue<>(new TransactionSortDescByAmount());
         transactions.offer(new Transaction(1, "number_1", 100));
         transactions.offer(new Transaction(2, "number_2", 1000));
         transactions.offer(new Transaction(3, "number_3", 85));
