@@ -14,7 +14,7 @@ import java.util.Properties;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SqlTrackerTest {
-            private static Connection connection;
+    private static Connection connection;
 
     @BeforeAll
     public static void initConnection() {
@@ -50,7 +50,7 @@ public class SqlTrackerTest {
     @Test
     public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item item =  tracker.add(new Item("item"));
+        Item item = tracker.add(new Item("item"));
         assertThat(tracker.findById(item.getId())).isEqualTo(item);
     }
 
