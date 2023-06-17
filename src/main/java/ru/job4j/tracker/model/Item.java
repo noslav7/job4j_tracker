@@ -14,6 +14,7 @@ public class Item {
     @Getter
     @Setter
     private int id;
+    @Getter
     @EqualsAndHashCode.Include
     private String name;
     private LocalDateTime created = LocalDateTime.now();
