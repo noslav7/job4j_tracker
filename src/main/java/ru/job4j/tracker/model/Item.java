@@ -15,6 +15,7 @@ public class Item {
     @Setter
     private int id;
     @Getter
+    @Setter
     @EqualsAndHashCode.Include
     private String name;
     @Getter
