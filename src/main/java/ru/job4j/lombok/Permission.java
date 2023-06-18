@@ -10,6 +10,6 @@ import java.util.List;
 public class Permission {
     private int id;
     private String name;
-    @Singular("accessBy")
+    @Singular("rules")
     private List<String> rules;
 }

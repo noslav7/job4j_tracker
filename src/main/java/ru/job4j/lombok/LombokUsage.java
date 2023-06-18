@@ -15,10 +15,10 @@ public class LombokUsage {
         var permission = Permission.builder()
                 .id(1)
                 .name("ADMIN")
-                .accessBy("create")
-                .accessBy("update")
-                .accessBy("read")
-                .accessBy("delete")
+                .rules("create")
+                .rules("update")
+                .rules("read")
+                .rules("delete")
                 .build();
         System.out.println(permission);
     }
