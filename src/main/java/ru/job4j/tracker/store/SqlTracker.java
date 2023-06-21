@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import ru.job4j.tracker.model.Item;
+import ru.job4j.tracker.Item;
 
 public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;

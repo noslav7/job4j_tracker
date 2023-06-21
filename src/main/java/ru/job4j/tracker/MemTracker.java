@@ -2,7 +2,6 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 import java.util.List;
-import ru.job4j.tracker.model.Item;
 
 public class MemTracker implements Store {
     private static List<Item> items = new ArrayList<>();

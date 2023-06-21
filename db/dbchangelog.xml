@@ -11,4 +11,5 @@
     <include file="scripts/update_001.sql" relativeToChangelogFile="true"/>
     <include file="scripts/update_002.sql" relativeToChangelogFile="true"/>
     <include file="scripts/update_003.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/002_dml_insert_items_data.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>
