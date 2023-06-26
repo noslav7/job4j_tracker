@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Store;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +25,7 @@ public class MemTracker implements Store {
         return item;
     }
 
-    public Item findById(int id) {
+    public Item findById(Integer id) {
         int index = indexOf(id);
         return index != -1 ? items.get(index) : null;
     }
@@ -52,7 +55,7 @@ public class MemTracker implements Store {
         return rsl;
     }
 
-    public boolean replace(int id, Item item) {
+    public boolean replace(Integer id, Item item) {
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
@@ -62,7 +65,7 @@ public class MemTracker implements Store {
         return rsl;
     }
 
-    public boolean delete(int id) {
+    public boolean delete(Integer id) {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {

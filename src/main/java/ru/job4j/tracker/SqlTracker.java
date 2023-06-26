@@ -1,14 +1,10 @@
-package ru.job4j.tracker.store;
-
-import ru.job4j.tracker.Store;
+package ru.job4j.tracker;
 
 import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-import ru.job4j.tracker.Item;
 
 public class SqlTracker implements Store, AutoCloseable {
     private Connection cn;
@@ -63,7 +59,7 @@ public class SqlTracker implements Store, AutoCloseable {
     }
 
     @Override
-    public boolean replace(int id, Item item) {
+    public boolean replace(Integer id, Item item) {
         boolean result = false;
         try (PreparedStatement statement =
                      cn.prepareStatement("update items set name = ?, "
@@ -79,7 +75,7 @@ public class SqlTracker implements Store, AutoCloseable {
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(Integer id) {
         boolean result = false;
         try (PreparedStatement statement =
                      cn.prepareStatement("delete from items where id = ?")) {
@@ -124,7 +120,7 @@ public class SqlTracker implements Store, AutoCloseable {
     }
 
     @Override
-    public Item findById(int id) {
+    public Item findById(Integer id) {
         Item item = null;
         try (PreparedStatement statement = cn.prepareStatement(
                 "select * from items where id = ?")) {
