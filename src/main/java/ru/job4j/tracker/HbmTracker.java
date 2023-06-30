@@ -113,6 +113,9 @@ public class HbmTracker implements Store, AutoCloseable {
         } catch (Exception e) {
             session.getTransaction().rollback();
         }
+        if (result == null) {
+            throw new IllegalArgumentException("Item with id = " + id + " does not exist");
+        }
         return result;
     }
 
