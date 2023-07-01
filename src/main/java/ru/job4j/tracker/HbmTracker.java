@@ -43,8 +43,9 @@ public class HbmTracker implements Store, AutoCloseable {
             session.close();
         } catch (Exception e) {
             session.getTransaction().rollback();
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -59,8 +60,9 @@ public class HbmTracker implements Store, AutoCloseable {
             session.close();
         } catch (Exception e) {
             session.getTransaction().rollback();
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -112,9 +114,6 @@ public class HbmTracker implements Store, AutoCloseable {
             session.close();
         } catch (Exception e) {
             session.getTransaction().rollback();
-        }
-        if (result == null) {
-            throw new IllegalArgumentException("Item with id = " + id + " does not exist");
         }
         return result;
     }
