@@ -1,10 +1,13 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.store.Store;
 
 import static java.lang.System.out;
 
-public class ExitAction implements UserAction {
+public class Exit implements UserAction {
 
-    public ExitAction() {
+    public Exit() {
     }
 
     @Override

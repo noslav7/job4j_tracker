@@ -7,7 +7,7 @@ import java.util.Arrays;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class FindByIdActionTest {
+public class FindByIdTest {
 
     @Test
     public void execute() {
